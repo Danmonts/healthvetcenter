@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agendar Consulta - Health Vet Center</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f7f2;
+            color: #333;
+        }
+
+        header {
+            background-color: #a8d5ba;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 150px;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #067c55;
+        }
+
+        form label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #067c55;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #055a3e;
+        }
+
+        footer {
+            background-color: #067c55;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .back-button {
+            background-color: #f0ad4e;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .back-button:hover {
+            background-color: #ec971f;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="healthvetlogo.png" alt="Logo Health Vet Center" />
+    </header>
+
+    <main>
+        <h1>Agende uma Consulta</h1>
+        <form id="agendamentoForm" action="#" method="post" novalidate>
+            <label for="tutor">Nome do Tutor</label>
+            <input type="text" id="tutor" name="tutor" required />
+
+            <label for="paciente">Nome do Paciente</label>
+            <input type="text" id="paciente" name="paciente" required />
+
+            <label for="animal">Tipo de Animal</label>
+            <select id="animal" name="animal" required>
+                <option value="">Selecione</option>
+                <option value="Cachorro">Cachorro</option>
+                <option value="Gato">Gato</option>
+                <option value="Rato">Rato</option>
+                <option value="Porquinho da Índia">Porquinho da Índia</option>
+                <option value="Aves">Aves</option>
+                <option value="Coelho">Coelho</option>
+                <option value="Pássaro">Pássaro</option>
+                <option value="Réptil">Réptil</option>
+                <option value="Roedores">Roedores</option>
+                <option value="Sagui">Sagui</option>
+            </select>
+
+            <label for="data">Data Desejada</label>
+            <input type="date" id="data" name="data" required />
+
+            <label for="hora">Horário Desejado</label>
+            <input type="time" id="hora" name="hora" required />
+
+            <label for="telefone">Telefone para Contato</label>
+            <input type="tel" id="telefone" name="telefone" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="endereco">Descreva resumidamente o atendimento</label>
+            <textarea id="endereco" name="endereco" rows="3" required></textarea>
+
+            <button type="button" class="back-button" onclick="window.location.href='file:///C:/Users/barba/OneDrive/%C3%81rea%20de%20Trabalho/Site%20Clinica/clinica-vet.html'">Voltar ao Menu</button>
+            <button type="submit">Enviar Agendamento</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('agendamentoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            if (!this.checkValidity()) {
+                this.reportValidity();
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                'Nome do Tutor': this.tutor.value.trim(),
+                'Nome do Paciente': this.paciente.value.trim(),
+                'Tipo de Animal': this.animal.value,
+                'Data Desejada': this.data.value,
+                'Horário Desejado': this.hora.value,
+                'Telefone para Contato': this.telefone.value.trim(),
+                'Email': this.email.value.trim(),
+                'Descrição do Atendimento': this.endereco.value.trim()
+            };
+
+            // Create text content
+            let textContent = '--- Agendamento de Consulta ---\n\n';
+            for (const [key, value] of Object.entries(formData)) {
+                textContent += `${key}: ${value}\n`;
+            }
+            textContent += `\nEnviado em: ${new Date().toLocaleString('pt-BR')}\n`;
+
+            // Create blob and trigger download
+            const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+            const fileName = `agendamento_${new Date().toISOString().slice(0,10)}.txt`;
+
+            // Create temporary download link
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+
+            // Clean up
+            document.body.removeChild(link);
+
+            // Optionally reset form
+            this.reset();
+
+            // Notify user
+            alert('Agendamento salvo com sucesso. O arquivo .txt foi baixado no seu dispositivo.');
+        });
+    </script>
+</body>
+</html>
+
