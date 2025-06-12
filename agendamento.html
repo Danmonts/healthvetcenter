@@ -86,6 +86,17 @@
         .back-button:hover {
             background-color: #ec971f;
         }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -136,6 +147,8 @@
             <button type="button" class="back-button" onclick="window.location.href='file:///C:/Users/barba/OneDrive/%C3%81rea%20de%20Trabalho/Site%20Clinica/clinica-vet.html'">Voltar ao Menu</button>
             <button type="submit">Enviar Agendamento</button>
         </form>
+
+        <div class="message" id="successMessage">Obrigado pela preferência, em breve entraremos em contato.</div>
     </main>
 
     <footer>
@@ -187,10 +200,9 @@
             // Optionally reset form
             this.reset();
 
-            // Notify user
-            alert('Agendamento salvo com sucesso. O arquivo .txt foi baixado no seu dispositivo.');
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
         });
     </script>
 </body>
 </html>
-
