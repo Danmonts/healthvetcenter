@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-9">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Vet Center</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f7f2;
+            color: #333;
+        }
+        header {
+            background-color: #a8d5ba;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            max-width: 150px;
+        }
+        nav {
+            background-color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #067c55;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .banner {
+            background-image: url('goldens.png'); /* ✅ Caminho relativo */
+            background-size: cover;
+            background-position: center;
+            height: 50vh; /* Banner ocupa metade da tela */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            text-align: center;
+        }
+        .banner h1 {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 2.5em;
+        }
+        .section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .section h2 {
+            color: #067c55;
+            margin-bottom: 20px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .service {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #067c55;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="healthvetlogo.png" alt="Logo Health Vet Center">
+    </header>
+
+    <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#visao">Visão</a>
+        <a href="#contato">Contato</a>
+	<a href="agendamento.html">Agendar Consulta</a>
+    </nav>
+
+    <div class="banner">
+        <h1>Excelência em cuidar do seu pet</h1>
+    </div>
+
+    <section class="section" id="servicos">
+        <h2>Serviços Oferecidos</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Consulta Clínica</h3>
+                <p>Atendimento médico veterinário para cães, gatos e pets exóticos.</p>
+            </div>
+            <div class="service">
+                <h3>Vacinação</h3>
+                <p>Protocolos completos para proteger seu pet contra doenças.</p>
+            </div>
+            <div class="service">
+                <h3>Exames Laboratoriais</h3>
+                <p>Exames de sangue, urina, fezes, bioquímicos e mais.</p>
+            </div>
+            <div class="service">
+                <h3>Cirurgias</h3>
+                <p>Cirurgias eletivas e emergenciais, com segurança e qualidade.</p>
+            </div>
+            <div class="service">
+                <h3>Odontologia Veterinária</h3>
+                <p>Limpeza, extrações e cuidados com a saúde bucal do seu pet.</p>
+            </div>
+            <div class="service">
+                <h3>Emergência 24h</h3>
+                <p>Atendimento emergencial de segunda a sábado nos horários de funcionamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="visao">
+        <h2>Nossa Visão</h2>
+        <p style="font-size: 1.2em;">
+            Respeito à vida, ética profissional, comprometimento e amor. <br>
+            A missão da <strong>Health Vet Center</strong> é oferecer um atendimento de excelência, garantindo bem-estar, saúde e qualidade de vida aos pets e tranquilidade aos seus tutores.
+        </p>
+    </section>
+
+    <section class="section" id="contato">
+        <h2>Informações de Contato</h2>
+        <p><strong>Endereço:</strong> Rua Washington Luiz, 70 - Suzano</p>
+        <p><strong>Funcionamento:</strong><br>
+            Segunda a Sexta: 09:00 às 19:00<br>
+            Sábado: 09:00 às 16:00</p>
+        <p><strong>Telefone:</strong> (11) 2561-1922</p>
+        <p><strong>Email:</strong> contato@healthvetcenter.com.br</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
