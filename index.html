@@ -31,10 +31,10 @@
             font-weight: bold;
         }
         .banner {
-            background-image: url('goldens.png'); /* ✅ Caminho relativo */
+            background-image: url('goldens.png');
             background-size: cover;
             background-position: center;
-            height: 50vh; /* Banner ocupa metade da tela */
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,6 +74,16 @@
             text-align: center;
             padding: 20px;
         }
+        #mensagemErro {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+        input[type="datetime-local"], button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +96,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#visao">Visão</a>
         <a href="#contato">Contato</a>
-	<a href="agendamento.html">Agendar Consulta</a>
+        <a href="#agendamento">Agendar Consulta</a>
     </nav>
 
     <div class="banner">
@@ -141,9 +151,55 @@
         <p><strong>Email:</strong> dra.barbara.hvc@gmail.com</p>
     </section>
 
+    <section class="section" id="agendamento">
+        <h2>Agendar Consulta</h2>
+        <form id="formAgendamento">
+            <label for="dataHora">Escolha uma data e horário:</label><br><br>
+            <input type="datetime-local" id="dataHora" name="dataHora" required>
+            <br><br>
+            <button type="submit">Confirmar Agendamento</button>
+            <p id="mensagemErro"></p>
+        </form>
+    </section>
+
     <footer>
         <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const input = document.getElementById('dataHora');
+        const form = document.getElementById('formAgendamento');
+        const mensagemErro = document.getElementById('mensagemErro');
+
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        input.min = now.toISOString().slice(0, 16);
+
+        form.addEventListener('submit', function (e) {
+            const dataSelecionada = new Date(input.value);
+            const diaSemana = dataSelecionada.getDay(); // 0 = Domingo
+            const hora = dataSelecionada.getHours();
+            const minutos = dataSelecionada.getMinutes();
+
+            let horarioValido = false;
+
+            if (diaSemana === 0) {
+                horarioValido = false; // domingo não
+            } else if (diaSemana >= 1 && diaSemana <= 5) {
+                horarioValido = hora >= 9 && (hora < 19 || (hora === 19 && minutos === 0));
+            } else if (diaSemana === 6) {
+                horarioValido = hora >= 9 && (hora < 16 || (hora === 16 && minutos === 0));
+            }
+
+            if (!horarioValido) {
+                e.preventDefault();
+                mensagemErro.style.display = 'block';
+                mensagemErro.textContent = 'Agendamentos permitidos de segunda a sexta das 09:00 às 19:00 e aos sábados das 09:00 às 16:00.';
+            } else {
+                mensagemErro.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
 </html>
