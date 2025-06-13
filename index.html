@@ -69,21 +69,21 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .carousel-container {
-            margin: 40px auto;
+            margin-top: 40px;
             text-align: center;
         }
         .carousel {
             position: relative;
-            max-width: 500px;
+            width: 300px;
+            height: 300px;
             margin: auto;
         }
         .carousel img {
             width: 100%;
-            max-height: 500px;
+            height: 100%;
             object-fit: contain;
             background-color: white;
             display: none;
-            transition: opacity 1s ease-in-out;
             border-radius: 15px;
         }
         .carousel img.active {
@@ -113,17 +113,6 @@
     <div class="banner">
         <h1>Excelência em cuidar do seu pet</h1>
     </div>
-
-    <!-- Carrossel da Creche -->
-    <section class="section carousel-container">
-        <h2>Creche para Cães de Porte Pequeno</h2>
-        <div class="carousel">
-            <img src="gifcreche1.png" class="active" alt="Creche 1">
-            <img src="gifcreche2.png" alt="Creche 2">
-            <img src="gifcreche3.png" alt="Creche 3">
-            <img src="gifcreche4.png" alt="Creche 4">
-        </div>
-    </section>
 
     <section class="section" id="servicos">
         <h2>Serviços Oferecidos</h2>
@@ -165,6 +154,17 @@
                 <p>Ambiente seguro e supervisionado, com atividades, brincadeiras e descanso para o bem-estar físico e emocional do seu cãozinho.</p>
             </div>
         </div>
+
+        <!-- Carrossel logo após os serviços -->
+        <div class="carousel-container">
+            <h2>Veja nossa Creche em Ação</h2>
+            <div class="carousel">
+                <img src="gifcreche1.png" class="active" alt="Creche 1">
+                <img src="gifcreche2.png" alt="Creche 2">
+                <img src="gifcreche3.png" alt="Creche 3">
+                <img src="gifcreche4.png" alt="Creche 4">
+            </div>
+        </div>
     </section>
 
     <section class="section" id="visao">
@@ -204,7 +204,7 @@
             images[index].classList.add("active");
         }
 
-        setInterval(showNextImage, 3000); // troca a cada 3 segundos
+        setInterval(showNextImage, 3000);
     </script>
 </body>
 </html>
