@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Health Vet Center</title>
     <style>
         body {
@@ -68,21 +68,20 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-
-        /* Carrossel da creche */
+        .carousel-container {
+            margin: 40px auto;
+            text-align: center;
+        }
         .carousel {
             position: relative;
-            width: 100%;
             max-width: 500px;
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            margin: auto;
         }
         .carousel img {
             width: 100%;
-            height: 280px;
-            object-fit: cover;
+            max-height: 500px;
+            object-fit: contain;
+            background-color: white;
             display: none;
             transition: opacity 1s ease-in-out;
             border-radius: 15px;
@@ -90,7 +89,6 @@
         .carousel img.active {
             display: block;
         }
-
         footer {
             background-color: #067c55;
             color: white;
@@ -107,7 +105,6 @@
 
     <nav>
         <a href="#servicos">Serviços</a>
-        <a href="#creche">Creche</a>
         <a href="#visao">Visão</a>
         <a href="#contato">Contato</a>
         <a href="agendamento.html">Agendar Consulta</a>
@@ -116,6 +113,17 @@
     <div class="banner">
         <h1>Excelência em cuidar do seu pet</h1>
     </div>
+
+    <!-- Carrossel da Creche -->
+    <section class="section carousel-container">
+        <h2>Creche para Cães de Porte Pequeno</h2>
+        <div class="carousel">
+            <img src="gifcreche1.png" class="active" alt="Creche 1">
+            <img src="gifcreche2.png" alt="Creche 2">
+            <img src="gifcreche3.png" alt="Creche 3">
+            <img src="gifcreche4.png" alt="Creche 4">
+        </div>
+    </section>
 
     <section class="section" id="servicos">
         <h2>Serviços Oferecidos</h2>
@@ -159,16 +167,6 @@
         </div>
     </section>
 
-    <section class="section" id="creche">
-        <h2>Momentos na nossa Creche</h2>
-        <div class="carousel">
-            <img src="gifcreche1.png" alt="Creche 1" class="active">
-            <img src="gifcreche2.png" alt="Creche 2">
-            <img src="gifcreche3.png" alt="Creche 3">
-            <img src="gifcreche4.png" alt="Creche 4">
-        </div>
-    </section>
-
     <section class="section" id="visao">
         <h2>Nossa Visão</h2>
         <p style="font-size: 1.2em;">
@@ -197,15 +195,16 @@
     </footer>
 
     <script>
-        // Carrossel de imagens da creche
-        const imagens = document.querySelectorAll(".carousel img");
+        const images = document.querySelectorAll(".carousel img");
         let index = 0;
-        setInterval(() => {
-            imagens[index].classList.remove("active");
-            index = (index + 1) % imagens.length;
-            imagens[index].classList.add("active");
-        }, 3000); // troca a cada 3 segundos
-    </script>
 
+        function showNextImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }
+
+        setInterval(showNextImage, 3000); // troca a cada 3 segundos
+    </script>
 </body>
 </html>
