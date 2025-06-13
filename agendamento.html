@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Agendar Consulta - Health Vet Center</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Vet Center</title>
     <style>
         body {
             margin: 0;
@@ -11,80 +11,78 @@
             background-color: #e6f7f2;
             color: #333;
         }
-
         header {
             background-color: #a8d5ba;
             padding: 20px;
             text-align: center;
         }
-
         header img {
             max-width: 150px;
         }
-
-        main {
-            max-width: 600px;
-            margin: 40px auto;
+        nav {
+            background-color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #067c55;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .banner {
+            background-image: url('goldens.png');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            text-align: center;
+        }
+        .banner h1 {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 2.5em;
+        }
+        .section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .section h2 {
+            color: #067c55;
+            margin-bottom: 20px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .service {
             background-color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-
-        h1 {
-            text-align: center;
-            color: #067c55;
-        }
-
-        form label {
-            display: block;
-            margin: 15px 0 5px;
-            font-weight: bold;
-        }
-
-        form input,
-        form select,
-        form textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        form button {
-            background-color: #067c55;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            margin-top: 20px;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-
-        form button:hover {
-            background-color: #055a3e;
-        }
-
         footer {
             background-color: #067c55;
             color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
         }
-
-        .back-button {
-            background-color: #f0ad4e;
+        #mensagemErro {
+            color: red;
             margin-top: 10px;
-            width: 100%;
+            display: none;
         }
-
-        .back-button:hover {
-            background-color: #ec971f;
+        input[type="datetime-local"], button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -94,103 +92,114 @@
         <img src="logoclinica.png" alt="Logo Health Vet Center">
     </header>
 
-    <main>
-        <h1>Agende uma Consulta</h1>
-        <form id="agendamentoForm" action="#" method="post" novalidate>
-            <label for="tutor">Nome do Tutor</label>
-            <input type="text" id="tutor" name="tutor" required />
+    <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#visao">Visão</a>
+        <a href="#contato">Contato</a>
+        <a href="#agendamento">Agendar Consulta</a>
+    </nav>
 
-            <label for="paciente">Nome do Paciente</label>
-            <input type="text" id="paciente" name="paciente" required />
+    <div class="banner">
+        <h1>Excelência em cuidar do seu pet</h1>
+    </div>
 
-            <label for="animal">Tipo de Animal</label>
-            <select id="animal" name="animal" required>
-                <option value="">Selecione</option>
-                <option value="Cachorro">Cachorro</option>
-                <option value="Gato">Gato</option>
-                <option value="Rato">Rato</option>
-                <option value="Porquinho da Índia">Porquinho da Índia</option>
-                <option value="Aves">Aves</option>
-                <option value="Coelho">Coelho</option>
-                <option value="Pássaro">Pássaro</option>
-                <option value="Réptil">Réptil</option>
-                <option value="Roedores">Roedores</option>
-                <option value="Sagui">Sagui</option>
-            </select>
+    <section class="section" id="servicos">
+        <h2>Serviços Oferecidos</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Consulta Clínica</h3>
+                <p>Atendimento médico veterinário para cães, gatos e pets exóticos.</p>
+            </div>
+            <div class="service">
+                <h3>Vacinação</h3>
+                <p>Protocolos completos para proteger seu pet contra doenças.</p>
+            </div>
+            <div class="service">
+                <h3>Exames Laboratoriais</h3>
+                <p>Exames de sangue, urina, fezes, bioquímicos e mais.</p>
+            </div>
+            <div class="service">
+                <h3>Cirurgias</h3>
+                <p>Cirurgias eletivas e emergenciais, com segurança e qualidade.</p>
+            </div>
+            <div class="service">
+                <h3>Odontologia Veterinária</h3>
+                <p>Limpeza, extrações e cuidados com a saúde bucal do seu pet.</p>
+            </div>
+            <div class="service">
+                <h3>Emergência 24h</h3>
+                <p>Atendimento emergencial de segunda a sábado nos horários de funcionamento.</p>
+            </div>
+        </div>
+    </section>
 
-            <label for="data">Data Desejada</label>
-            <input type="date" id="data" name="data" required />
+    <section class="section" id="visao">
+        <h2>Nossa Visão</h2>
+        <p style="font-size: 1.2em;">
+            Respeito à vida, ética profissional, comprometimento e amor. <br>
+            A missão da <strong>Health Vet Center</strong> é oferecer um atendimento de excelência, garantindo bem-estar, saúde e qualidade de vida aos pets e tranquilidade aos seus tutores.
+        </p>
+    </section>
 
-            <label for="hora">Horário Desejado</label>
-            <input type="time" id="hora" name="hora" required />
+    <section class="section" id="contato">
+        <h2>Informações de Contato</h2>
+        <p><strong>Endereço:</strong> Rua Washington Luiz, 70 - Suzano</p>
+        <p><strong>Funcionamento:</strong><br>
+            Segunda a Sexta: 09:00 às 19:00<br>
+            Sábado: 09:00 às 16:00</p>
+        <p><strong>Whatsapp:</strong> (11) 2561-1922</p>
+        <p><strong>Email:</strong> dra.barbara.hvc@gmail.com</p>
+    </section>
 
-            <label for="telefone">Telefone para Contato</label>
-            <input type="tel" id="telefone" name="telefone" required />
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="endereco">Descreva resumidamente o atendimento</label>
-            <textarea id="endereco" name="endereco" rows="3" required></textarea>
-
-            <button type="button" class="back-button" onclick="window.location.href='file:///C:/Users/barba/OneDrive/%C3%81rea%20de%20Trabalho/Site%20Clinica/clinica-vet.html'">Voltar ao Menu</button>
-            <button type="submit">Enviar Agendamento</button>
+    <section class="section" id="agendamento">
+        <h2>Agendar Consulta</h2>
+        <form id="formAgendamento">
+            <label for="dataHora">Escolha uma data e horário:</label><br><br>
+            <input type="datetime-local" id="dataHora" name="dataHora" required>
+            <br><br>
+            <button type="submit">Confirmar Agendamento</button>
+            <p id="mensagemErro"></p>
         </form>
-    </main>
+    </section>
 
     <footer>
         <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        document.getElementById('agendamentoForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        const input = document.getElementById('dataHora');
+        const form = document.getElementById('formAgendamento');
+        const mensagemErro = document.getElementById('mensagemErro');
 
-            if (!this.checkValidity()) {
-                this.reportValidity();
-                return;
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        input.min = now.toISOString().slice(0, 16);
+
+        form.addEventListener('submit', function (e) {
+            const dataSelecionada = new Date(input.value);
+            const diaSemana = dataSelecionada.getDay(); // 0 = Domingo
+            const hora = dataSelecionada.getHours();
+            const minutos = dataSelecionada.getMinutes();
+
+            let horarioValido = false;
+
+            if (diaSemana === 0) {
+                horarioValido = false; // domingo não
+            } else if (diaSemana >= 1 && diaSemana <= 5) {
+                horarioValido = hora >= 9 && (hora < 19 || (hora === 19 && minutos === 0));
+            } else if (diaSemana === 6) {
+                horarioValido = hora >= 9 && (hora < 16 || (hora === 16 && minutos === 0));
             }
 
-            // Collect form data
-            const formData = {
-                'Nome do Tutor': this.tutor.value.trim(),
-                'Nome do Paciente': this.paciente.value.trim(),
-                'Tipo de Animal': this.animal.value,
-                'Data Desejada': this.data.value,
-                'Horário Desejado': this.hora.value,
-                'Telefone para Contato': this.telefone.value.trim(),
-                'Email': this.email.value.trim(),
-                'Descrição do Atendimento': this.endereco.value.trim()
-            };
-
-            // Create text content
-            let textContent = '--- Agendamento de Consulta ---\n\n';
-            for (const [key, value] of Object.entries(formData)) {
-                textContent += `${key}: ${value}\n`;
+            if (!horarioValido) {
+                e.preventDefault();
+                mensagemErro.style.display = 'block';
+                mensagemErro.textContent = 'Agendamentos permitidos de segunda a sexta das 09:00 às 19:00 e aos sábados das 09:00 às 16:00.';
+            } else {
+                mensagemErro.style.display = 'none';
             }
-            textContent += `\nEnviado em: ${new Date().toLocaleString('pt-BR')}\n`;
-
-            // Create blob and trigger download
-            const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
-            const fileName = `agendamento_${new Date().toISOString().slice(0,10)}.txt`;
-
-            // Create temporary download link
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-
-            // Clean up
-            document.body.removeChild(link);
-
-            // Optionally reset form
-            this.reset();
-
-            // Notify user
-            alert('Agendamento salvo com sucesso. O arquivo .txt foi baixado no seu dispositivo.');
         });
     </script>
+
 </body>
 </html>
-
