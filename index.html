@@ -8,27 +8,32 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #e6f7f2;
+            background-color: #f4f9f6; /* Fundo mais suave */
             color: #333;
         }
         header {
-            background-color: #a8d5ba;
+            background-color: #a8d5ba; /* Verde suave */
             padding: 20px;
             text-align: center;
         }
         header img {
-            max-width: 150px;
+            max-width: 180px;
         }
         nav {
             background-color: #ffffff;
-            padding: 10px 0;
+            padding: 12px 0;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            margin: 0 15px;
-            color: #067c55;
+            margin: 0 20px;
+            color: #4c9a2a; /* Verde mais forte */
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #067c55; /* Cor mais forte para o hover */
         }
         .banner {
             background-image: url('goldens.png');
@@ -67,6 +72,11 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         .carousel-container {
             margin-top: 40px;
@@ -94,6 +104,7 @@
             color: white;
             text-align: center;
             padding: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -191,20 +202,4 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-        const images = document.querySelectorAll(".carousel img");
-        let index = 0;
-
-        function showNextImage() {
-            images[index].classList.remove("active");
-            index = (index + 1) % images.length;
-            images[index].classList.add("active");
-        }
-
-        setInterval(showNextImage, 3000);
-    </script>
-</body>
-</html>
+        <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</
