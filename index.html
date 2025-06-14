@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Health Vet Center</title>
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         body {
             margin: 0;
@@ -11,20 +16,24 @@
             background-color: #f4f9f6;
             color: #333;
         }
+
         header {
             background-color: #a8d5ba;
             padding: 20px;
             text-align: center;
         }
+
         header img {
             max-width: 180px;
         }
+
         nav {
             background-color: #ffffff;
             padding: 12px 0;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
         nav a {
             margin: 0 20px;
             color: #4c9a2a;
@@ -32,9 +41,11 @@
             font-weight: bold;
             transition: color 0.3s ease;
         }
+
         nav a:hover {
             color: #067c55;
         }
+
         .banner {
             background-image: url('goldens.png');
             background-size: cover;
@@ -47,26 +58,31 @@
             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
             text-align: center;
         }
+
         .banner h1 {
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px 40px;
             border-radius: 10px;
             font-size: 2.5em;
         }
+
         .section {
             padding: 60px 20px;
             max-width: 1000px;
             margin: auto;
         }
+
         .section h2 {
             color: #067c55;
             margin-bottom: 20px;
         }
+
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
+
         .service {
             background-color: white;
             padding: 20px;
@@ -74,20 +90,24 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .service:hover {
             transform: translateY(-10px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
+
         .carousel-container {
             margin-top: 40px;
             text-align: center;
         }
+
         .carousel {
             position: relative;
             width: 300px;
             height: 300px;
             margin: auto;
         }
+
         .carousel img {
             width: 100%;
             height: 100%;
@@ -96,9 +116,11 @@
             display: none;
             border-radius: 15px;
         }
+
         .carousel img.active {
             display: block;
         }
+
         .carousel button {
             position: absolute;
             top: 50%;
@@ -111,15 +133,19 @@
             border-radius: 50%;
             font-size: 18px;
         }
+
         .carousel button:hover {
             background-color: rgba(0,0,0,0.8);
         }
+
         .carousel .prev {
             left: 10px;
         }
+
         .carousel .next {
             right: 10px;
         }
+
         footer {
             background-color: #067c55;
             color: white;
@@ -127,6 +153,7 @@
             padding: 20px;
             margin-top: 40px;
         }
+
         .contato-container {
             display: flex;
             justify-content: space-between;
@@ -134,10 +161,12 @@
             gap: 20px;
             flex-wrap: wrap;
         }
+
         .contato-info {
             flex: 1;
             min-width: 280px;
         }
+
         .contato-visual {
             flex: 1;
             min-width: 280px;
@@ -146,14 +175,21 @@
             align-items: center;
             gap: 15px;
         }
+
         .contato-visual iframe {
             width: 100%;
             height: 220px;
             border: 0;
             border-radius: 10px;
         }
+
+        .contato-info p i {
+            margin-right: 8px;
+            color: #067c55;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -255,21 +291,34 @@
         <div class="contato-container">
             <div class="contato-info">
                 <h2>Informações de Contato</h2>
-                <p><strong>Endereço:</strong> 
+
+                <p><i class="fa-solid fa-location-dot"></i><strong>Endereço:</strong>
                     <a href="https://www.google.com/maps/search/?api=1&query=Rua+Washington+Luiz,+70,+Suzano" target="_blank" style="color:#067c55; text-decoration: underline;">
                         Rua Washington Luiz, 70 - Suzano
                     </a>
                 </p>
-                <p><strong>Horário de Funcionamento:</strong><br>
+
+                <p><i class="fa-solid fa-clock"></i><strong>Horário de Funcionamento:</strong><br>
                     Segunda a Sexta: 09:00 às 19:00<br>
                     Sábado: 09:00 às 16:00
                 </p>
-                <p><strong>Whatsapp:</strong> 
+
+                <p><i class="fa-brands fa-whatsapp"></i><strong>Whatsapp:</strong>
                     <a href="https://wa.me/551125611922" target="_blank" style="color:#067c55; text-decoration: underline;">
                         (11) 2561-1922
                     </a>
                 </p>
-                <p><strong>Email:</strong> healthvetcenter@gmail.com</p>
+
+                <p><i class="fa-brands fa-instagram"></i><strong>Instagram:</strong><br>
+                    <a href="https://www.instagram.com/healthvetcenter/" target="_blank" style="color:#067c55; text-decoration: underline;">
+                        @healthvetcenter
+                    </a><br>
+                    <a href="https://www.instagram.com/quintauzinho/" target="_blank" style="color:#067c55; text-decoration: underline;">
+                        @quintauzinho
+                    </a>
+                </p>
+
+                <p><i class="fa-solid fa-envelope"></i><strong>Email:</strong> healthvetcenter@gmail.com</p>
             </div>
 
             <div class="contato-visual">
