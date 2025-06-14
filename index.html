@@ -8,11 +8,11 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #f4f9f6; /* Fundo mais suave */
+            background-color: #f4f9f6;
             color: #333;
         }
         header {
-            background-color: #a8d5ba; /* Verde suave */
+            background-color: #a8d5ba;
             padding: 20px;
             text-align: center;
         }
@@ -27,13 +27,13 @@
         }
         nav a {
             margin: 0 20px;
-            color: #4c9a2a; /* Verde mais forte */
+            color: #4c9a2a;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
         nav a:hover {
-            color: #067c55; /* Cor mais forte para o hover */
+            color: #067c55;
         }
         .banner {
             background-image: url('goldens.png');
@@ -99,6 +99,27 @@
         .carousel img.active {
             display: block;
         }
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        .carousel button:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .carousel .prev {
+            left: 10px;
+        }
+        .carousel .next {
+            right: 10px;
+        }
         footer {
             background-color: #067c55;
             color: white;
@@ -118,7 +139,6 @@
         <a href="#servicos">Serviços</a>
         <a href="#visao">Visão</a>
         <a href="#contato">Contato</a>
-        <a href="agendamento.html">Agendar Consulta</a>
     </nav>
 
     <div class="banner">
@@ -170,10 +190,12 @@
         <div class="carousel-container">
             <h2>Veja nossa Creche em Ação</h2>
             <div class="carousel">
+                <button class="prev" onclick="prevSlide()">❮</button>
                 <img src="gifcreche1.png" class="active" alt="Creche 1">
                 <img src="gifcreche2.png" alt="Creche 2">
                 <img src="gifcreche3.png" alt="Creche 3">
                 <img src="gifcreche4.png" alt="Creche 4">
+                <button class="next" onclick="nextSlide()">❯</button>
             </div>
         </div>
     </section>
@@ -202,4 +224,31 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</
+        <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel img');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000);
+    </script>
+
+</body>
+</html>
