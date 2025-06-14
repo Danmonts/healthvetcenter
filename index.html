@@ -1,309 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Health Vet Center</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Vet Center | Clínica Veterinária</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f9f6;
-            color: #333;
+            padding: 0;
+            background-color: #f0fdf5;
         }
         header {
-            background-color: #a8d5ba;
+            background-color: #2e7d32;
+            color: white;
             padding: 20px;
             text-align: center;
         }
-        header img {
-            max-width: 180px;
+        header h1 {
+            margin: 0;
         }
         nav {
-            background-color: #ffffff;
-            padding: 12px 0;
+            background-color: #4caf50;
+            padding: 10px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            margin: 0 20px;
-            color: #4c9a2a;
+            color: white;
+            margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease;
         }
         nav a:hover {
-            color: #067c55;
+            text-decoration: underline;
         }
-        .banner {
-            background-image: url('goldens.png');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
+        main {
+            padding: 20px;
+        }
+        .mapa-container {
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-            text-align: center;
-        }
-        .banner h1 {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px 40px;
-            border-radius: 10px;
-            font-size: 2.5em;
-        }
-        .section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .section h2 {
-            color: #067c55;
-            margin-bottom: 20px;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .service {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .carousel-container {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .carousel {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: auto;
-        }
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: white;
-            display: none;
-            border-radius: 15px;
-        }
-        .carousel img.active {
-            display: block;
-        }
-        .carousel button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 50%;
-            font-size: 18px;
-        }
-        .carousel button:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-        .carousel .prev {
-            left: 10px;
-        }
-        .carousel .next {
-            right: 10px;
-        }
-        footer {
-            background-color: #067c55;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-        .contato-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
+            align-items: center;
+            gap: 50px;
             flex-wrap: wrap;
         }
-        .contato-info {
-            flex: 1;
-            min-width: 280px;
+        .mapa {
+            flex: 1 1 400px;
+            max-width: 600px;
         }
-        .contato-visual {
-            flex: 1;
-            min-width: 280px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
+        .mascote {
+            flex: 1 1 300px;
+            max-width: 400px;
         }
-        .contato-visual img {
-            max-width: 200px;
-        }
-        .contato-visual iframe {
+        .mascote img {
             width: 100%;
-            height: 220px;
-            border: 0;
-            border-radius: 10px;
+            height: auto;
+        }
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="logoclinica.png" alt="Logo Health Vet Center">
-    </header>
+<header>
+    <h1>Health Vet Center</h1>
+    <p>Clínica Veterinária</p>
+</header>
 
-    <nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#visao">Visão</a>
-        <a href="#contato">Contato</a>
-    </nav>
+<nav>
+    <a href="#">Início</a>
+    <a href="#">Serviços</a>
+    <a href="#">Sobre</a>
+    <a href="#">Contato</a>
+</nav>
 
-    <div class="banner">
-        <h1>Excelência em cuidar do seu pet</h1>
+<main>
+    <h2>Onde Estamos</h2>
+    <div class="mapa-container">
+        <div class="mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="mascote">
+            <img src="mascotemya.png" alt="Mascote da Clínica">
+        </div>
     </div>
+</main>
 
-    <section class="section" id="servicos">
-        <h2>Serviços Oferecidos</h2>
-        <div class="services">
-            <div class="service">
-                <h3>Consulta Clínica</h3>
-                <p>Atendimento médico veterinário para cães, gatos e pets exóticos.</p>
-            </div>
-            <div class="service">
-                <h3>Vacinação</h3>
-                <p>Protocolos completos, atualizados com vacinas éticas, e aplicado de forma low stress para proteger seu pet.</p>
-            </div>
-            <div class="service">
-                <h3>Exames Laboratoriais</h3>
-                <p>Exames de sangue, urina, fezes, bioquímicos e mais.</p>
-            </div>
-            <div class="service">
-                <h3>Cirurgias</h3>
-                <p>Cirurgias eletivas e emergenciais, com segurança e qualidade.</p>
-            </div>
-            <div class="service">
-                <h3>Odontologia Veterinária</h3>
-                <p>Limpeza, extrações e cuidados com a saúde bucal do seu pet.</p>
-            </div>
-            <div class="service">
-                <h3>Internação Veterinária</h3>
-                <p>Ambiente seguro, monitoramento constante e cuidados individualizados para pets em recuperação.</p>
-            </div>
-            <div class="service">
-                <h3>Consulta Nutricional</h3>
-                <p>Alimentação natural equilibrada e balanceada individualmente para o seu pet.</p>
-            </div>
-            <div class="service">
-                <h3>Consulta Especialidades</h3>
-                <p>Diversas especialidades para um diagnóstico mais preciso e rápido.</p>
-            </div>
-            <div class="service">
-                <h3>Creche para Cães de porte pequeno</h3>
-                <p>Ambiente seguro e supervisionado, com atividades, brincadeiras e descanso para o bem-estar físico e emocional do seu cãozinho.</p>
-            </div>
-        </div>
-
-        <div class="carousel-container">
-            <h2>Nossos momentos</h2>
-            <div class="carousel">
-                <button class="prev" onclick="prevSlide()">❮</button>
-                <img src="gifcreche1.png" class="active" alt="Creche 1">
-                <img src="gifcreche2.png" alt="Creche 2">
-                <img src="gifcreche3.png" alt="Creche 3">
-                <img src="gifcreche4.png" alt="Creche 4">
-                <img src="gifcreche5.png" alt="Creche 5">
-                <img src="gifcreche6.png" alt="Creche 6">
-                <img src="gifcreche7.png" alt="Creche 7">
-                <img src="gifcreche8.png" alt="Creche 8">
-                <img src="gifcreche9.png" alt="Creche 9">
-                <img src="gifcreche10.png" alt="Creche 10">
-                <img src="gifcreche11.png" alt="Creche 11">
-                <img src="gifcreche12.png" alt="Creche 12">
-                <img src="gifcreche13.png" alt="Creche 13">
-                <img src="gifcreche14.png" alt="Creche 14">
-                <img src="gifcreche15.png" alt="Creche 15">
-                <img src="gifcreche16.png" alt="Creche 16">
-                <img src="gifcreche17.png" alt="Creche 17">
-                <img src="gifcreche18.png" alt="Creche 18">
-                <img src="gifcreche19.png" alt="Creche 19">
-                <img src="gifcreche20.png" alt="Creche 20">
-                <img src="gifcreche21.png" alt="Creche 21">
-                <img src="gifcreche22.png" alt="Creche 22">
-                <img src="gifcreche23.png" alt="Creche 23">
-                <button class="next" onclick="nextSlide()">❯</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="visao">
-        <h2>Nossa Visão</h2>
-        <p style="font-size: 1.2em;">
-            Respeito à vida, ética profissional, comprometimento e amor. <br>
-            A missão da <strong>Health Vet Center</strong> é oferecer um atendimento de excelência, garantindo bem-estar, saúde e qualidade de vida aos pets e tranquilidade aos seus tutores.
-        </p>
-    </section>
-
-    <section class="section" id="contato">
-        <div class="contato-container">
-            <div class="contato-info">
-                <h2>Informações de Contato</h2>
-                <p><strong>Endereço:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Rua+Washington+Luiz,+70,+Suzano" target="_blank" style="color:#067c55; text-decoration: underline;">Rua Washington Luiz, 70 - Suzano</a></p>
-                <p><strong>Funcionamento:</strong><br>
-                    Segunda a Sexta: 09:00 às 19:00<br>
-                    Sábado: 09:00 às 16:00</p>
-                <p><strong>Whatsapp:</strong> (11) 2561-1922</p>
-                <p><strong>Email:</strong> healthvetcenter@gmail.com</p>
-            </div>
-
-            <div class="contato-visual">
-                <img src="mascotemya.png" alt="Mascote da Clínica">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.3346800823564!2d-46.30816032497046!3d-23.520716378829227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7d9c79c3cfc7%3A0x273546b2c44e2b6f!2sR.%20Washington%20Luiz%2C%2070%20-%20Centro%2C%20Suzano%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1718067812302!5m2!1spt-BR!2sbr" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Health Vet Center. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel img');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 3000);
-    </script>
+<footer>
+    <p>&copy; 2025 Health Vet Center - Clínica Veterinária. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
