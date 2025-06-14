@@ -3,24 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Vet Center - Contato</title>
+    <title>Health Vet Center - Dra. Bárbara Brandão</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f6fefb;
             margin: 0;
-            padding: 0;
+            background-color: #f8f8f8;
             color: #333;
         }
 
+        header {
+            background-color: #067c55;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav {
+            background-color: #055c3f;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00cc88;
+        }
+
         .section {
-            padding: 40px 20px;
+            padding: 60px 20px;
             background-color: #ffffff;
         }
 
         h2 {
             color: #067c55;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .contato-container {
@@ -28,19 +59,19 @@
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 40px;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .contato-info {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
         }
 
         .contato-info p {
             margin: 12px 0;
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .contato-info strong {
@@ -59,19 +90,27 @@
 
         .contato-visual {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
         }
 
         .contato-visual iframe {
             width: 100%;
-            height: 300px;
+            height: 280px;
             border: none;
             border-radius: 10px;
         }
 
+        footer {
+            background-color: #067c55;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
         @media (min-width: 768px) {
             .contato-visual iframe {
-                height: 400px;
+                height: 380px;
             }
         }
     </style>
@@ -79,55 +118,86 @@
 
 <body>
 
-<section class="section" id="contato">
-    <div class="contato-container">
-        <div class="contato-info">
-            <h2>Informações de Contato</h2>
+    <header>
+        <h1>Health Vet Center - Dra. Bárbara Brandão</h1>
+    </header>
 
-            <p><strong>Endereço:</strong><br>
-                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Washington+Luiz,+70,+Suzano" 
-                   target="_blank">
-                    📍 Rua Washington Luiz, 70 - Suzano
-                </a>
-            </p>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+    </nav>
 
-            <p><strong>Funcionamento:</strong><br>
-                🕑 Segunda a Sexta: 09:00 às 19:00<br>
-                🕑 Sábado: 09:00 às 16:00
-            </p>
+    <section class="section" id="inicio">
+        <h2>Bem-vindo à Health Vet Center</h2>
+        <p style="text-align: center; max-width: 800px; margin: auto;">
+            Atendimento especializado para seu pet. Cuidamos de cães, gatos, coelhos, roedores e outros animais.
+            Oferecemos serviços de clínica geral, especialidades, cirurgias, banho, tosa e creche para cães de pequeno porte.
+        </p>
+    </section>
 
-            <p><strong>Whatsapp:</strong><br>
-                <a href="https://wa.me/551125611922" target="_blank">
-                    📱 (11) 2561-1922
-                </a>
-            </p>
+    <section class="section" id="servicos">
+        <h2>Nossos Serviços</h2>
+        <ul style="max-width: 800px; margin: auto; line-height: 1.8;">
+            <li>✅ Clínica Geral para animais de pequeno e grande porte</li>
+            <li>✅ Consultas especializadas</li>
+            <li>✅ Cirurgias</li>
+            <li>✅ Vacinação</li>
+            <li>✅ Exames laboratoriais e de imagem</li>
+            <li>✅ Banho e tosa</li>
+            <li>✅ Creche para cães de pequeno porte</li>
+        </ul>
+    </section>
 
-            <p><strong>Instagram:</strong><br>
-                <a href="https://instagram.com/healthvetcenter" target="_blank">
-                    📸 @healthvetcenter
-                </a><br>
-                <a href="https://instagram.com/quintauzinho" target="_blank">
-                    📸 @quintauzinho
-                </a>
-            </p>
+    <section class="section" id="contato">
+        <h2>Informações de Contato</h2>
 
-            <p><strong>Email:</strong><br>
-                <a href="mailto:healthvetcenter@gmail.com">
-                    ✉️ healthvetcenter@gmail.com
-                </a>
-            </p>
+        <div class="contato-container">
+            <div class="contato-info">
+                <p><strong>Endereço:</strong><br>
+                    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rua+Washington+Luiz,+70,+Suzano" 
+                       target="_blank">
+                        Rua Washington Luiz, 70 - Suzano
+                    </a>
+                </p>
+
+                <p><strong>Horário de Funcionamento:</strong><br>
+                    🕑 Segunda a Sexta: 09:00 às 19:00<br>
+                    🕑 Sábado: 09:00 às 16:00
+                </p>
+
+                <p><strong>Whatsapp:</strong><br>
+                    📱 <a href="https://wa.me/551125611922" target="_blank">
+                        (11) 2561-1922
+                    </a>
+                </p>
+
+                <p><strong>Instagram:</strong><br>
+                    📸 <a href="https://instagram.com/healthvetcenter" target="_blank">@healthvetcenter</a><br>
+                    📸 <a href="https://instagram.com/quintauzinho" target="_blank">@quintauzinho</a>
+                </p>
+
+                <p><strong>Email:</strong><br>
+                    ✉️ <a href="mailto:healthvetcenter@gmail.com">
+                        healthvetcenter@gmail.com
+                    </a>
+                </p>
+            </div>
+
+            <div class="contato-visual">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.3346800823564!2d-46.30816032497046!3d-23.520716378829227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7d9c79c3cfc7%3A0x273546b2c44e2b6f!2sR.%20Washington%20Luiz%2C%2070%20-%20Centro%2C%20Suzano%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1718067812302!5m2!1spt-BR!2sbr" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
+    </section>
 
-        <div class="contato-visual">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.3346800823564!2d-46.30816032497046!3d-23.520716378829227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7d9c79c3cfc7%3A0x273546b2c44e2b6f!2sR.%20Washington%20Luiz%2C%2070%20-%20Centro%2C%20Suzano%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1718067812302!5m2!1spt-BR!2sbr" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-    </div>
-</section>
+    <footer>
+        &copy; 2025 Health Vet Center - Dra. Bárbara Brandão. Todos os direitos reservados.
+    </footer>
 
 </body>
 </html>
