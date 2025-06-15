@@ -101,10 +101,14 @@
             margin-top: 40px;
             text-align: center;
         }
+        .carousel-container h3 {
+            color: #067c55;
+            margin-bottom: 20px;
+        }
         .carousel {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             margin: auto;
         }
         .carousel img {
@@ -239,6 +243,38 @@
             Nossa missão é promover saúde, bem-estar e qualidade de vida para os pets e seus tutores, através de uma
             medicina veterinária moderna, humanizada e ética.
         </p>
+
+        <!-- Carrossel -->
+        <div class="carousel-container">
+            <h3>Veja nossa creche em ação!</h3>
+            <div class="carousel">
+                <button class="prev">&#10094;</button>
+                <img src="gifcreche1.png" class="active" alt="Creche 1">
+                <img src="gifcreche2.png" alt="Creche 2">
+                <img src="gifcreche3.png" alt="Creche 3">
+                <img src="gifcreche4.png" alt="Creche 4">
+                <img src="gifcreche5.png" alt="Creche 5">
+                <img src="gifcreche6.png" alt="Creche 6">
+                <img src="gifcreche7.png" alt="Creche 7">
+                <img src="gifcreche8.png" alt="Creche 8">
+                <img src="gifcreche9.png" alt="Creche 9">
+                <img src="gifcreche10.png" alt="Creche 10">
+                <img src="gifcreche11.png" alt="Creche 11">
+                <img src="gifcreche12.png" alt="Creche 12">
+                <img src="gifcreche13.png" alt="Creche 13">
+                <img src="gifcreche14.png" alt="Creche 14">
+                <img src="gifcreche15.png" alt="Creche 15">
+                <img src="gifcreche16.png" alt="Creche 16">
+                <img src="gifcreche17.png" alt="Creche 17">
+                <img src="gifcreche18.png" alt="Creche 18">
+                <img src="gifcreche19.png" alt="Creche 19">
+                <img src="gifcreche20.png" alt="Creche 20">
+                <img src="gifcreche21.png" alt="Creche 21">
+                <img src="gifcreche22.png" alt="Creche 22">
+                <img src="gifcreche23.png" alt="Creche 23">
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
     </section>
 
     <section class="section" id="contato">
@@ -261,5 +297,43 @@
         <p>&copy; 2025 Health Vet Center - Todos os direitos reservados.</p>
     </footer>
 
+    <script>
+        const images = document.querySelectorAll('.carousel img');
+        const prevBtn = document.querySelector('.carousel .prev');
+        const nextBtn = document.querySelector('.carousel .next');
+        let currentIndex = 0;
+        let interval = setInterval(showNext, 3000);
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            showNext();
+            resetInterval();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            showPrev();
+            resetInterval();
+        });
+
+        function resetInterval() {
+            clearInterval(interval);
+            interval = setInterval(showNext, 3000);
+        }
+    </script>
 </body>
 </html>
