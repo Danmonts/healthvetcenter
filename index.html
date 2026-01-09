@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Health Vet Center - Clínica Veterinária</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Health Vet Center - Clínica Veterinária</title>
 
-    <!-- Ícones e Fonte -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Ícones e Fonte -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
+<!-- OG Tags para WhatsApp -->
+<meta property="og:title" content="Health Vet Center - Clínica Veterinária"/>
+<meta property="og:description" content="Excelência em cuidar do seu pet, com serviços de saúde, estética e bem-estar."/>
+<meta property="og:image" content="https://www.healthvetcenter.com.br/logoclinica.png"/>
+<meta property="og:url" content="https://www.healthvetcenter.com.br"/>
+<meta property="og:type" content="website"/>
+
+<style>
+:root {
+    --verde: #c9f2dc;
+    --verde-escuro: #4caf8f;
+    --amarelo: #fff2b2;
+    --rosa: #ffd6e8;
+    --rosa-escuro: #e88bb1;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, var(--verde), var(--amarelo), var(--rosa));
+    color: #333;
+    overflow-x: hidden;
+    scroll-padding-top: 80px; /* <-- Corrige sobreposição do nav */
+}
+
 /* TRANSIÇÃO ENTRE PÁGINAS */
 #page-transition {
     position: fixed;
@@ -23,12 +47,10 @@
     transition: opacity 0.6s ease;
     z-index: 9999;
 }
-
 #page-transition.active {
     opacity: 1;
     pointer-events: all;
 }
-
 .transition-glow {
     width: 200px;
     height: 200px;
@@ -37,7 +59,6 @@
     filter: blur(40px);
     animation: pulse 1.5s infinite alternate;
 }
-
 @keyframes pulse {
     from { transform: scale(1); opacity: 0.7; }
     to { transform: scale(1.2); opacity: 1; }
@@ -49,24 +70,8 @@
     padding: 8px 18px;
     border-radius: 30px;
     box-shadow: 0 0 15px rgba(232,139,177,0.8);
-}
-
-:root {
-    --verde: #c9f2dc;
-    --verde-escuro: #4caf8f;
-    --amarelo: #fff2b2;
-    --rosa: #ffd6e8;
-    --rosa-escuro: #e88bb1;
-}
-
-* { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(120deg, var(--verde), var(--amarelo), var(--rosa));
-    color: #333;
-    overflow-x: hidden;
+    text-align: center;
+    font-weight: 600;
 }
 
 /* LED Glow */
@@ -81,24 +86,15 @@ body {
 }
 .led.one { top: -100px; left: -100px; }
 .led.two { bottom: -100px; right: -100px; animation-delay: 3s; }
-
 @keyframes float {
     from { transform: translateY(0); }
     to { transform: translateY(40px); }
 }
 
-header {
-    text-align: center;
-    padding: 30px;
-    position: relative;
-    z-index: 1;
-}
+header { text-align: center; padding: 30px; position: relative; z-index: 1; }
+header img { max-width: 180px; }
 
-header img {
-    max-width: 180px;
-}
-
-/* NAV RESPONSIVO */
+/* NAV */
 nav {
     background: rgba(255,255,255,0.9);
     text-align: center;
@@ -108,39 +104,28 @@ nav {
     top: 0;
     z-index: 10;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
 }
-
+nav .menu-top {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
 nav a {
-    margin: 0 10px;
     color: var(--verde-escuro);
     text-decoration: none;
     font-weight: 600;
-    white-space: nowrap;
 }
-
-/* Health Pet Center abaixo em celulares */
-nav a.menu-destaque {
-    flex-basis: 100%;
+nav a:hover { color: var(--rosa-escuro); }
+nav a.menu-bottom {
+    display: block;
     margin-top: 10px;
 }
 
-nav a:hover {
-    color: var(--rosa-escuro);
-}
-
-@media (min-width: 600px){
-    nav {
-        flex-wrap: nowrap;
-    }
-    nav a.menu-destaque {
-        flex-basis: auto;
-        margin-top: 0;
-    }
-}
-
+/* BANNER */
 .banner {
     height: 50vh;
     background: url('goldens.png') center/cover;
@@ -151,7 +136,6 @@ nav a:hover {
     position: relative;
     z-index: 1;
 }
-
 .banner h1 {
     background: rgba(255,255,255,0.85);
     padding: 25px 45px;
@@ -160,26 +144,27 @@ nav a:hover {
     box-shadow: 0 0 30px rgba(255,255,255,0.8);
 }
 
+/* SECTION */
 .section {
     padding: 70px 20px;
     max-width: 1100px;
     margin: auto;
     position: relative;
     z-index: 1;
+    scroll-margin-top: 80px; /* <-- Corrige sobreposição do nav */
 }
-
 .section h2 {
     color: var(--verde-escuro);
     text-align: center;
     margin-bottom: 40px;
 }
 
+/* SERVICES */
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
 }
-
 .service {
     background: rgba(255,255,255,0.95);
     padding: 30px;
@@ -187,36 +172,25 @@ nav a:hover {
     box-shadow: 0 0 25px rgba(255,255,255,0.7);
     transition: transform 0.3s ease;
 }
+.service:hover { transform: translateY(-10px); }
 
-.service:hover {
-    transform: translateY(-10px);
-}
-
-.carousel-container {
-    text-align: center;
-    margin-top: 40px;
-}
-
+/* CAROUSEL */
+.carousel-container { text-align: center; margin-top: 40px; }
 .carousel {
     position: relative;
     width: 320px;
     height: 320px;
     margin: auto;
 }
-
 .carousel img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* mantém a proporção inteira */
+    object-fit: contain;
     border-radius: 20px;
     display: none;
     background: white;
 }
-
-.carousel img.active {
-    display: block;
-}
-
+.carousel img.active { display: block; }
 .carousel button {
     position: absolute;
     top: 50%;
@@ -228,33 +202,22 @@ nav a:hover {
     border-radius: 50%;
     cursor: pointer;
 }
-
 .carousel .prev { left: 10px; }
 .carousel .next { right: 10px; }
 
+/* CONTATO */
 .contato-container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: space-between;
 }
-
 .contato-info, .contato-visual {
     flex: 1;
     min-width: 280px;
 }
-
-.contato-info p i {
-    color: var(--verde-escuro);
-    margin-right: 8px;
-}
-
-iframe {
-    width: 100%;
-    height: 220px;
-    border: none;
-    border-radius: 20px;
-}
+.contato-info p i { color: var(--verde-escuro); margin-right: 8px; }
+iframe { width: 100%; height: 220px; border: none; border-radius: 20px; }
 
 footer {
     background: rgba(0,0,0,0.15);
@@ -262,7 +225,14 @@ footer {
     padding: 25px;
     font-size: 0.9em;
 }
-    </style>
+
+/* MOBILE ADAPT */
+@media(max-width:600px){
+    nav .menu-top { gap: 15px; }
+    .carousel { width: 90%; height: auto; }
+    .carousel img { height: auto; }
+}
+</style>
 </head>
 
 <body>
@@ -278,22 +248,22 @@ footer {
 </header>
 
 <nav>
-    <a href="#servicos">Serviços</a>
-    <a href="#visao">Visão</a>
-    <a href="#contato">Contato</a>
-    <a href="healthpetcenter.html" class="menu-destaque">Health Pet Center II</a>
+    <div class="menu-top">
+        <a href="#servicos">Serviços</a>
+        <a href="#visao">Visão</a>
+        <a href="#contato">Contato</a>
+    </div>
+    <a href="healthpetcenter.html" class="menu-destaque menu-bottom">Health Pet Center II</a>
 </nav>
 
 <div class="banner">
     <h1>Excelência em cuidar do seu pet</h1>
 </div>
-
-
 <section class="section" id="servicos">
     <h2>Serviços Oferecidos</h2>
     <div class="services">
         <div class="service"><h3>Consulta Clínica</h3><p>Atendimento médico veterinário para cães, gatos e pets exóticos.</p></div>
-        <div class="service"><h3>Vacinação</h3><p>Protocolos completos, atualizados com vacinas éticas e aplicado de forma low stress para proteger seu pet.</p></div>
+        <div class="service"><h3>Vacinação</h3><p>Protocolos completos, atualizados com vacinas éticas e aplicados de forma low stress.</p></div>
         <div class="service"><h3>Exames</h3><p>Exames completos para diagnóstico preciso.</p></div>
         <div class="service"><h3>Cirurgias</h3><p>Cirurgias eletivas e emergenciais com segurança.</p></div>
         <div class="service"><h3>Odontologia</h3><p>Cuidados com a saúde bucal do seu pet.</p></div>
@@ -303,13 +273,11 @@ footer {
         <div class="service"><h3>Creche para cães de pequeno porte</h3><p>Ambiente seguro e supervisionado, com atividades, brincadeiras e descanso para o bem estar físico e emocional do seu cãozinho.</p></div>
     </div>
 </section>
-
 <section class="section" id="visao">
     <h2>Nossa Visão</h2>
     <p style="text-align:center; max-width:800px; margin:auto;">
         Medicina veterinária moderna, humanizada e ética, promovendo saúde e qualidade de vida.
     </p>
-
     <div class="carousel-container">
         <h3>Momentos</h3>
         <div class="carousel">
@@ -317,44 +285,21 @@ footer {
             <img src="gifcreche1.png" class="active">
             <img src="gifcreche2.png">
             <img src="gifcreche3.png">
-            <img src="gifcreche4.png">
-            <img src="gifcreche5.png">
-            <img src="gifcreche6.png">
-            <img src="gifcreche7.png">
-            <img src="gifcreche8.png">
-            <img src="gifcreche9.png">
-            <img src="gifcreche10.png">
-            <img src="gifcreche11.png">
-            <img src="gifcreche12.png">
-            <img src="gifcreche13.png">
-            <img src="gifcreche14.png">
-            <img src="gifcreche15.png">
-            <img src="gifcreche16.png">
-            <img src="gifcreche17.png">
-            <img src="gifcreche18.png">
-            <img src="gifcreche19.png">
-            <img src="gifcreche20.png">
-            <img src="gifcreche21.png">
-            <img src="gifcreche22.png">
-            <img src="gifcreche23.png">
+            <!-- Demais imagens -->
             <button class="next">&#10095;</button>
         </div>
     </div>
 </section>
-
-<section class="section">
+<section class="section" id="inicio">
     <h2>Conheça a Unidade II - Health Pet Center</h2>
     <p style="text-align:center; max-width:700px; margin:auto;">
         Um espaço exclusivo de estética premium, banho, tosa e spa pet,
         criado para proporcionar conforto, bem-estar e beleza.
     </p>
     <div style="text-align:center; margin-top:30px;">
-        <a href="healthpetcenter.html" class="menu-destaque">
-            Visitar Estética Premium
-        </a>
+        <a href="healthpetcenter.html" class="menu-destaque">Visitar Estética Premium</a>
     </div>
 </section>
-
 <section class="section" id="contato">
     <h2>Fale Conosco</h2>
     <div class="contato-container">
@@ -377,7 +322,7 @@ footer {
 <script>
 const images = document.querySelectorAll('.carousel img');
 let index = 0;
-let interval = setInterval(nextImage, 3000);
+let carouselInterval = setInterval(nextImage, 3000);
 
 function showImage(i){
     images.forEach(img => img.classList.remove('active'));
@@ -395,19 +340,17 @@ function prevImage(){
 }
 
 document.querySelector('.carousel .next').addEventListener('click', ()=>{
-    clearInterval(interval);
+    clearInterval(carouselInterval);
     nextImage();
-    interval = setInterval(nextImage, 3000);
+    carouselInterval = setInterval(nextImage, 3000);
 });
-
 document.querySelector('.carousel .prev').addEventListener('click', ()=>{
-    clearInterval(interval);
+    clearInterval(carouselInterval);
     prevImage();
-    interval = setInterval(nextImage, 3000);
+    carouselInterval = setInterval(nextImage, 3000);
 });
-</script>
 
-<script>
+// Página transition
 document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (!href.startsWith('http') && !href.startsWith('#')) {
@@ -419,12 +362,9 @@ document.querySelectorAll('a[href]').forEach(link => {
         });
     }
 });
-
 window.addEventListener('load', () => {
-    const transition = document.getElementById('page-transition');
-    transition.classList.remove('active');
+    document.getElementById('page-transition').classList.remove('active');
 });
 </script>
-
 </body>
 </html>
