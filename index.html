@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Health Vet Center - Clínica Veterinária</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Health Vet Center - Clínica Veterinária</title>
 
-<!-- Ícones e Fonte -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Ícones e Fonte -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
+    <style>
 /* TRANSIÇÃO ENTRE PÁGINAS */
 #page-transition {
     position: fixed;
@@ -94,8 +94,11 @@ header {
     z-index: 1;
 }
 
-header img { max-width: 180px; }
+header img {
+    max-width: 180px;
+}
 
+/* NAV RESPONSIVO */
 nav {
     background: rgba(255,255,255,0.9);
     text-align: center;
@@ -104,16 +107,39 @@ nav {
     position: sticky;
     top: 0;
     z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 nav a {
-    margin: 0 20px;
+    margin: 0 10px;
     color: var(--verde-escuro);
     text-decoration: none;
     font-weight: 600;
+    white-space: nowrap;
 }
 
-nav a:hover { color: var(--rosa-escuro); }
+/* Health Pet Center abaixo em celulares */
+nav a.menu-destaque {
+    flex-basis: 100%;
+    margin-top: 10px;
+}
+
+nav a:hover {
+    color: var(--rosa-escuro);
+}
+
+@media (min-width: 600px){
+    nav {
+        flex-wrap: nowrap;
+    }
+    nav a.menu-destaque {
+        flex-basis: auto;
+        margin-top: 0;
+    }
+}
 
 .banner {
     height: 50vh;
@@ -162,9 +188,10 @@ nav a:hover { color: var(--rosa-escuro); }
     transition: transform 0.3s ease;
 }
 
-.service:hover { transform: translateY(-10px); }
+.service:hover {
+    transform: translateY(-10px);
+}
 
-/* CARROSSEL UNIFORME PARA 23 IMAGENS */
 .carousel-container {
     text-align: center;
     margin-top: 40px;
@@ -172,55 +199,38 @@ nav a:hover { color: var(--rosa-escuro); }
 
 .carousel {
     position: relative;
+    width: 320px;
+    height: 320px;
+    margin: auto;
+}
+
+.carousel img {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
+    height: 100%;
+    object-fit: contain; /* mantém a proporção inteira */
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.15);
-    background: rgba(255,255,255,0.9);
+    display: none;
+    background: white;
 }
 
-.carousel-inner {
-    display: flex;
-    transition: transform 0.6s ease;
+.carousel img.active {
+    display: block;
 }
 
-.carousel-inner img {
-    width: 100%;
-    flex-shrink: 0;
-    object-fit: contain;
-    height: 400px; /* altura uniforme */
-    border-radius: 10px;
-}
-
-.carousel button.prev,
-.carousel button.next {
+.carousel button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(232,139,177,0.8);
+    background: var(--rosa-escuro);
     border: none;
     color: white;
-    font-size: 2em;
-    padding: 10px 15px;
+    padding: 10px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s;
-    z-index: 10;
 }
 
-.carousel button.prev:hover,
-.carousel button.next:hover { background: rgba(232,139,177,1); }
-
-.carousel button.prev { left: 15px; }
-.carousel button.next { right: 15px; }
-
-@media (max-width: 768px) {
-    .carousel button.prev,
-    .carousel button.next { font-size: 1.5em; padding: 8px 12px; }
-    .carousel-inner img { height: 250px; }
-}
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; }
 
 .contato-container {
     display: flex;
@@ -229,9 +239,15 @@ nav a:hover { color: var(--rosa-escuro); }
     justify-content: space-between;
 }
 
-.contato-info, .contato-visual { flex: 1; min-width: 280px; }
+.contato-info, .contato-visual {
+    flex: 1;
+    min-width: 280px;
+}
 
-.contato-info p i { color: var(--verde-escuro); margin-right: 8px; }
+.contato-info p i {
+    color: var(--verde-escuro);
+    margin-right: 8px;
+}
 
 iframe {
     width: 100%;
@@ -246,7 +262,7 @@ footer {
     padding: 25px;
     font-size: 0.9em;
 }
-</style>
+    </style>
 </head>
 
 <body>
@@ -279,7 +295,9 @@ footer {
         criado para proporcionar conforto, bem-estar e beleza.
     </p>
     <div style="text-align:center; margin-top:30px;">
-        <a href="healthpetcenter.html" class="menu-destaque">Visitar Estética Premium</a>
+        <a href="healthpetcenter.html" class="menu-destaque">
+            Visitar Estética Premium
+        </a>
     </div>
 </section>
 
@@ -287,7 +305,7 @@ footer {
     <h2>Serviços Oferecidos</h2>
     <div class="services">
         <div class="service"><h3>Consulta Clínica</h3><p>Atendimento médico veterinário para cães, gatos e pets exóticos.</p></div>
-        <div class="service"><h3>Vacinação</h3><p>Protocolos completos, atualizados com vacinas éticas e aplicado de forma low stress para proteger seu pet..</p></div>
+        <div class="service"><h3>Vacinação</h3><p>Protocolos completos, atualizados com vacinas éticas e aplicado de forma low stress para proteger seu pet.</p></div>
         <div class="service"><h3>Exames</h3><p>Exames completos para diagnóstico preciso.</p></div>
         <div class="service"><h3>Cirurgias</h3><p>Cirurgias eletivas e emergenciais com segurança.</p></div>
         <div class="service"><h3>Odontologia</h3><p>Cuidados com a saúde bucal do seu pet.</p></div>
@@ -308,32 +326,29 @@ footer {
         <h3>Momentos</h3>
         <div class="carousel">
             <button class="prev">&#10094;</button>
-            <div class="carousel-inner">
-                <!-- 23 imagens -->
-                <img src="gifcreche1.png" alt="Momento 1" class="active">
-                <img src="gifcreche2.png" alt="Momento 2">
-                <img src="gifcreche3.png" alt="Momento 3">
-                <img src="gifcreche4.png" alt="Momento 4">
-                <img src="gifcreche5.png" alt="Momento 5">
-                <img src="gifcreche6.png" alt="Momento 6">
-                <img src="gifcreche7.png" alt="Momento 7">
-                <img src="gifcreche8.png" alt="Momento 8">
-                <img src="gifcreche9.png" alt="Momento 9">
-                <img src="gifcreche10.png" alt="Momento 10">
-                <img src="gifcreche11.png" alt="Momento 11">
-                <img src="gifcreche12.png" alt="Momento 12">
-                <img src="gifcreche13.png" alt="Momento 13">
-                <img src="gifcreche14.png" alt="Momento 14">
-                <img src="gifcreche15.png" alt="Momento 15">
-                <img src="gifcreche16.png" alt="Momento 16">
-                <img src="gifcreche17.png" alt="Momento 17">
-                <img src="gifcreche18.png" alt="Momento 18">
-                <img src="gifcreche19.png" alt="Momento 19">
-                <img src="gifcreche20.png" alt="Momento 20">
-                <img src="gifcreche21.png" alt="Momento 21">
-                <img src="gifcreche22.png" alt="Momento 22">
-                <img src="gifcreche23.png" alt="Momento 23">
-            </div>
+            <img src="gifcreche1.png" class="active">
+            <img src="gifcreche2.png">
+            <img src="gifcreche3.png">
+            <img src="gifcreche4.png">
+            <img src="gifcreche5.png">
+            <img src="gifcreche6.png">
+            <img src="gifcreche7.png">
+            <img src="gifcreche8.png">
+            <img src="gifcreche9.png">
+            <img src="gifcreche10.png">
+            <img src="gifcreche11.png">
+            <img src="gifcreche12.png">
+            <img src="gifcreche13.png">
+            <img src="gifcreche14.png">
+            <img src="gifcreche15.png">
+            <img src="gifcreche16.png">
+            <img src="gifcreche17.png">
+            <img src="gifcreche18.png">
+            <img src="gifcreche19.png">
+            <img src="gifcreche20.png">
+            <img src="gifcreche21.png">
+            <img src="gifcreche22.png">
+            <img src="gifcreche23.png">
             <button class="next">&#10095;</button>
         </div>
     </div>
@@ -359,17 +374,13 @@ footer {
 </footer>
 
 <script>
-// CARROSSEL 23 IMAGENS, uniforme
-const carouselInner = document.querySelector('.carousel-inner');
-const images = document.querySelectorAll('.carousel-inner img');
-const prevBtn = document.querySelector('.carousel .prev');
-const nextBtn = document.querySelector('.carousel .next');
+const images = document.querySelectorAll('.carousel img');
 let index = 0;
 let interval = setInterval(nextImage, 3000);
 
 function showImage(i){
-    carouselInner.style.transform = `translateX(-${i * 100}%)`;
-    index = i;
+    images.forEach(img => img.classList.remove('active'));
+    images[i].classList.add('active');
 }
 
 function nextImage(){
@@ -382,29 +393,33 @@ function prevImage(){
     showImage(index);
 }
 
-nextBtn.addEventListener('click', ()=>{ nextImage(); resetInterval(); });
-prevBtn.addEventListener('click', ()=>{ prevImage(); resetInterval(); });
-
-function resetInterval(){
+document.querySelector('.carousel .next').addEventListener('click', ()=>{
     clearInterval(interval);
+    nextImage();
     interval = setInterval(nextImage, 3000);
-}
+});
 
-// LINKS COM TRANSIÇÃO
-document.querySelectorAll('a[href]').forEach(link=>{
+document.querySelector('.carousel .prev').addEventListener('click', ()=>{
+    clearInterval(interval);
+    prevImage();
+    interval = setInterval(nextImage, 3000);
+});
+</script>
+
+<script>
+document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
-    if(!href.startsWith('http') && !href.startsWith('#')){
-        link.addEventListener('click', function(e){
+    if (!href.startsWith('http') && !href.startsWith('#')) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const transition = document.getElementById('page-transition');
             transition.classList.add('active');
-            setTimeout(()=>{ window.location.href = href; },600);
+            setTimeout(() => { window.location.href = href; }, 600);
         });
     }
 });
 
-// Fade-in ao carregar
-window.addEventListener('load', ()=>{
+window.addEventListener('load', () => {
     const transition = document.getElementById('page-transition');
     transition.classList.remove('active');
 });
