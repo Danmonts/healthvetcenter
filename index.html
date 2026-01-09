@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Health Vet Center - Clínica Veterinária</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Health Vet Center - Clínica Veterinária</title>
 
-    <!-- Ícones e Fonte -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Ícones e Fonte -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
+<style>
 /* TRANSIÇÃO ENTRE PÁGINAS */
 #page-transition {
     position: fixed;
@@ -43,7 +43,7 @@
     to { transform: scale(1.2); opacity: 1; }
 }
 
-	.menu-destaque {
+.menu-destaque {
     background: linear-gradient(90deg, #4caf8f, #e88bb1);
     color: white !important;
     padding: 8px 18px;
@@ -51,196 +51,202 @@
     box-shadow: 0 0 15px rgba(232,139,177,0.8);
 }
 
-        :root {
-            --verde: #c9f2dc;
-            --verde-escuro: #4caf8f;
-            --amarelo: #fff2b2;
-            --rosa: #ffd6e8;
-            --rosa-escuro: #e88bb1;
-        }
+:root {
+    --verde: #c9f2dc;
+    --verde-escuro: #4caf8f;
+    --amarelo: #fff2b2;
+    --rosa: #ffd6e8;
+    --rosa-escuro: #e88bb1;
+}
 
-        * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(120deg, var(--verde), var(--amarelo), var(--rosa));
-            color: #333;
-            overflow-x: hidden;
-        }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, var(--verde), var(--amarelo), var(--rosa));
+    color: #333;
+    overflow-x: hidden;
+}
 
-        /* LED Glow */
-        .led {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.7), transparent 70%);
-            filter: blur(70px);
-            z-index: 0;
-            animation: float 8s infinite alternate;
-        }
-        .led.one { top: -100px; left: -100px; }
-        .led.two { bottom: -100px; right: -100px; animation-delay: 3s; }
+/* LED Glow */
+.led {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.7), transparent 70%);
+    filter: blur(70px);
+    z-index: 0;
+    animation: float 8s infinite alternate;
+}
+.led.one { top: -100px; left: -100px; }
+.led.two { bottom: -100px; right: -100px; animation-delay: 3s; }
 
-        @keyframes float {
-            from { transform: translateY(0); }
-            to { transform: translateY(40px); }
-        }
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(40px); }
+}
 
-        header {
-            text-align: center;
-            padding: 30px;
-            position: relative;
-            z-index: 1;
-        }
+header {
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
 
-        header img {
-            max-width: 180px;
-        }
+header img { max-width: 180px; }
 
-        nav {
-            background: rgba(255,255,255,0.9);
-            text-align: center;
-            padding: 15px 0;
-            box-shadow: 0 0 20px rgba(255,255,255,0.8);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+nav {
+    background: rgba(255,255,255,0.9);
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-        nav a {
-            margin: 0 20px;
-            color: var(--verde-escuro);
-            text-decoration: none;
-            font-weight: 600;
-        }
+nav a {
+    margin: 0 20px;
+    color: var(--verde-escuro);
+    text-decoration: none;
+    font-weight: 600;
+}
 
-        nav a:hover {
-            color: var(--rosa-escuro);
-        }
+nav a:hover { color: var(--rosa-escuro); }
 
-        .banner {
-            height: 50vh;
-            background: url('goldens.png') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
+.banner {
+    height: 50vh;
+    background: url('goldens.png') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
 
-        .banner h1 {
-            background: rgba(255,255,255,0.85);
-            padding: 25px 45px;
-            border-radius: 20px;
-            color: var(--verde-escuro);
-            box-shadow: 0 0 30px rgba(255,255,255,0.8);
-        }
+.banner h1 {
+    background: rgba(255,255,255,0.85);
+    padding: 25px 45px;
+    border-radius: 20px;
+    color: var(--verde-escuro);
+    box-shadow: 0 0 30px rgba(255,255,255,0.8);
+}
 
-        .section {
-            padding: 70px 20px;
-            max-width: 1100px;
-            margin: auto;
-            position: relative;
-            z-index: 1;
-        }
+.section {
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
 
-        .section h2 {
-            color: var(--verde-escuro);
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.section h2 {
+    color: var(--verde-escuro);
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
 
-        .service {
-            background: rgba(255,255,255,0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 0 25px rgba(255,255,255,0.7);
-            transition: transform 0.3s ease;
-        }
+.service {
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.7);
+    transition: transform 0.3s ease;
+}
 
-        .service:hover {
-            transform: translateY(-10px);
-        }
+.service:hover { transform: translateY(-10px); }
 
-        .carousel-container {
-            text-align: center;
-            margin-top: 40px;
-        }
+/* CARROSSEL UNIFORME PARA 23 IMAGENS */
+.carousel-container {
+    text-align: center;
+    margin-top: 40px;
+}
 
-        .carousel {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            margin: auto;
-        }
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    background: rgba(255,255,255,0.9);
+}
 
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 20px;
-            display: none;
-            background: white;
-        }
+.carousel-inner {
+    display: flex;
+    transition: transform 0.6s ease;
+}
 
-        .carousel img.active {
-            display: block;
-        }
+.carousel-inner img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+    height: 400px; /* altura uniforme */
+    border-radius: 10px;
+}
 
-        .carousel button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--rosa-escuro);
-            border: none;
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+.carousel button.prev,
+.carousel button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(232,139,177,0.8);
+    border: none;
+    color: white;
+    font-size: 2em;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
 
-        .carousel .prev { left: 10px; }
-        .carousel .next { right: 10px; }
+.carousel button.prev:hover,
+.carousel button.next:hover { background: rgba(232,139,177,1); }
 
-        .contato-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: space-between;
-        }
+.carousel button.prev { left: 15px; }
+.carousel button.next { right: 15px; }
 
-        .contato-info, .contato-visual {
-            flex: 1;
-            min-width: 280px;
-        }
+@media (max-width: 768px) {
+    .carousel button.prev,
+    .carousel button.next { font-size: 1.5em; padding: 8px 12px; }
+    .carousel-inner img { height: 250px; }
+}
 
-        .contato-info p i {
-            color: var(--verde-escuro);
-            margin-right: 8px;
-        }
+.contato-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
 
-        iframe {
-            width: 100%;
-            height: 220px;
-            border: none;
-            border-radius: 20px;
-        }
+.contato-info, .contato-visual { flex: 1; min-width: 280px; }
 
-        footer {
-            background: rgba(0,0,0,0.15);
-            text-align: center;
-            padding: 25px;
-            font-size: 0.9em;
-        }
-    </style>
+.contato-info p i { color: var(--verde-escuro); margin-right: 8px; }
+
+iframe {
+    width: 100%;
+    height: 220px;
+    border: none;
+    border-radius: 20px;
+}
+
+footer {
+    background: rgba(0,0,0,0.15);
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9em;
+}
+</style>
 </head>
 
 <body>
@@ -273,9 +279,7 @@
         criado para proporcionar conforto, bem-estar e beleza.
     </p>
     <div style="text-align:center; margin-top:30px;">
-        <a href="healthpetcenter.html" class="menu-destaque">
-            Visitar Estética Premium
-        </a>
+        <a href="healthpetcenter.html" class="menu-destaque">Visitar Estética Premium</a>
     </div>
 </section>
 
@@ -285,12 +289,12 @@
         <div class="service"><h3>Consulta Clínica</h3><p>Atendimento médico veterinário para cães, gatos e pets exóticos.</p></div>
         <div class="service"><h3>Vacinação</h3><p>Protocolos completos, atualizados com vacinas éticas e aplicado de forma low stress para proteger seu pet..</p></div>
         <div class="service"><h3>Exames</h3><p>Exames completos para diagnóstico preciso.</p></div>
-	<div class="service"><h3>Cirurgias</h3><p>Cirurgias eletivas e emergenciais com segurança.</p></div>
+        <div class="service"><h3>Cirurgias</h3><p>Cirurgias eletivas e emergenciais com segurança.</p></div>
         <div class="service"><h3>Odontologia</h3><p>Cuidados com a saúde bucal do seu pet.</p></div>
         <div class="service"><h3>Internação</h3><p>Ambiente seguro, monitoramento constante e cuidados individualizados para pets em recuperação.</p></div>
         <div class="service"><h3>Consulta Nutricional</h3><p>Alimentação natural equilibrada e balanceada individualmente para o seu pet.</p></div>
-	<div class="service"><h3>Especialidades</h3><p>Cardiologia, dermatologia, oftalmologia e muito mais.</p></div>
-	<div class="service"><h3>Creche para cães de pequeno porte</h3><p>Ambiente seguro e supervisionado, com atividades, brincadeiras e descanso para o bem estar físico e emocional do seu cãozinho.</p></div>
+        <div class="service"><h3>Especialidades</h3><p>Cardiologia, dermatologia, oftalmologia e muito mais.</p></div>
+        <div class="service"><h3>Creche para cães de pequeno porte</h3><p>Ambiente seguro e supervisionado, com atividades, brincadeiras e descanso para o bem estar físico e emocional do seu cãozinho.</p></div>
     </div>
 </section>
 
@@ -304,29 +308,32 @@
         <h3>Momentos</h3>
         <div class="carousel">
             <button class="prev">&#10094;</button>
-            <img src="gifcreche1.png" class="active">
-            <img src="gifcreche2.png">
-            <img src="gifcreche3.png">
-            <img src="gifcreche4.png">
-            <img src="gifcreche5.png">
-            <img src="gifcreche6.png">
-            <img src="gifcreche7.png">
-            <img src="gifcreche8.png">
-            <img src="gifcreche9.png">
-            <img src="gifcreche10.png">
-            <img src="gifcreche11.png">
-            <img src="gifcreche12.png">
-            <img src="gifcreche13.png">
-            <img src="gifcreche14.png">
-            <img src="gifcreche15.png">
-            <img src="gifcreche16.png">
-            <img src="gifcreche17.png">
-            <img src="gifcreche18.png">
-            <img src="gifcreche19.png">
-            <img src="gifcreche20.png">
-            <img src="gifcreche21.png">
-            <img src="gifcreche22.png">
-            <img src="gifcreche23.png">
+            <div class="carousel-inner">
+                <!-- 23 imagens -->
+                <img src="gifcreche1.png" alt="Momento 1" class="active">
+                <img src="gifcreche2.png" alt="Momento 2">
+                <img src="gifcreche3.png" alt="Momento 3">
+                <img src="gifcreche4.png" alt="Momento 4">
+                <img src="gifcreche5.png" alt="Momento 5">
+                <img src="gifcreche6.png" alt="Momento 6">
+                <img src="gifcreche7.png" alt="Momento 7">
+                <img src="gifcreche8.png" alt="Momento 8">
+                <img src="gifcreche9.png" alt="Momento 9">
+                <img src="gifcreche10.png" alt="Momento 10">
+                <img src="gifcreche11.png" alt="Momento 11">
+                <img src="gifcreche12.png" alt="Momento 12">
+                <img src="gifcreche13.png" alt="Momento 13">
+                <img src="gifcreche14.png" alt="Momento 14">
+                <img src="gifcreche15.png" alt="Momento 15">
+                <img src="gifcreche16.png" alt="Momento 16">
+                <img src="gifcreche17.png" alt="Momento 17">
+                <img src="gifcreche18.png" alt="Momento 18">
+                <img src="gifcreche19.png" alt="Momento 19">
+                <img src="gifcreche20.png" alt="Momento 20">
+                <img src="gifcreche21.png" alt="Momento 21">
+                <img src="gifcreche22.png" alt="Momento 22">
+                <img src="gifcreche23.png" alt="Momento 23">
+            </div>
             <button class="next">&#10095;</button>
         </div>
     </div>
@@ -352,35 +359,52 @@
 </footer>
 
 <script>
-    const images = document.querySelectorAll('.carousel img');
-    let index = 0;
-    setInterval(() => {
-        images[index].classList.remove('active');
-        index = (index + 1) % images.length;
-        images[index].classList.add('active');
-    }, 3000);
-</script>
+// CARROSSEL 23 IMAGENS, uniforme
+const carouselInner = document.querySelector('.carousel-inner');
+const images = document.querySelectorAll('.carousel-inner img');
+const prevBtn = document.querySelector('.carousel .prev');
+const nextBtn = document.querySelector('.carousel .next');
+let index = 0;
+let interval = setInterval(nextImage, 3000);
 
-<script>
-document.querySelectorAll('a[href]').forEach(link => {
+function showImage(i){
+    carouselInner.style.transform = `translateX(-${i * 100}%)`;
+    index = i;
+}
+
+function nextImage(){
+    index = (index + 1) % images.length;
+    showImage(index);
+}
+
+function prevImage(){
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
+}
+
+nextBtn.addEventListener('click', ()=>{ nextImage(); resetInterval(); });
+prevBtn.addEventListener('click', ()=>{ prevImage(); resetInterval(); });
+
+function resetInterval(){
+    clearInterval(interval);
+    interval = setInterval(nextImage, 3000);
+}
+
+// LINKS COM TRANSIÇÃO
+document.querySelectorAll('a[href]').forEach(link=>{
     const href = link.getAttribute('href');
-
-    // Apenas links internos
-    if (!href.startsWith('http') && !href.startsWith('#')) {
-        link.addEventListener('click', function (e) {
+    if(!href.startsWith('http') && !href.startsWith('#')){
+        link.addEventListener('click', function(e){
             e.preventDefault();
             const transition = document.getElementById('page-transition');
             transition.classList.add('active');
-
-            setTimeout(() => {
-                window.location.href = href;
-            }, 600);
+            setTimeout(()=>{ window.location.href = href; },600);
         });
     }
 });
 
 // Fade-in ao carregar
-window.addEventListener('load', () => {
+window.addEventListener('load', ()=>{
     const transition = document.getElementById('page-transition');
     transition.classList.remove('active');
 });
