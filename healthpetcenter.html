@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="description" content="Health Pet Center - Estética premium, banho, tosa e spa pet em Suzano. Atendimento especializado e ambiente exclusivo.">
+
+    <meta charset="UTF-8">
+    <title>Health Pet Center - Estética Premium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+#localizacao {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #eaf9f3;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(111,194,151,0.3);
+    text-align: center;
+    color: #1a5d2c;
+}
+
+#localizacao h2 {
+    color: #3d8854;
+    margin-bottom: 10px;
+}
+
+#localizacao p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    box-shadow: 0 0 18px rgba(111,194,151,0.5);
+}
+
+.topo-petcenter {
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-petcenter {
+    max-width: 160px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.8));
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 10px 22px;
+    background: linear-gradient(90deg, #4caf8f, #e88bb1);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    box-shadow: 0 0 18px rgba(232,139,177,0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-voltar i {
+    margin-right: 6px;
+}
+
+.btn-voltar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(232,139,177,1);
+}
+
+/* TRANSIÇÃO ENTRE PÁGINAS */
+#page-transition {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    z-index: 9999;
+}
+
+#page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.transition-glow {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #c9f2dc, #ffd6e8, transparent 70%);
+    filter: blur(40px);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.7; }
+    to { transform: scale(1.2); opacity: 1; }
+}
+
+        :root {
+            --verde: #c9f2dc;
+            --verde-escuro: #4caf8f;
+            --amarelo: #fff2b2;
+            --rosa: #ffd6e8;
+            --rosa-escuro: #e88bb1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, var(--verde), var(--amarelo), var(--rosa));
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* LED Glow */
+        .led {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
+            filter: blur(60px);
+            animation: float 8s infinite alternate;
+            z-index: 0;
+        }
+
+        .led.one { top: -100px; left: -100px; }
+        .led.two { bottom: -100px; right: -100px; animation-delay: 2s; }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(40px); }
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            padding: 80px 20px;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: var(--verde-escuro);
+            text-shadow: 0 0 15px rgba(255,255,255,0.8);
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.6);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(232,139,177,0.8);
+        }
+
+        .card i {
+            font-size: 2.5em;
+            color: var(--rosa-escuro);
+            margin-bottom: 15px;
+        }
+
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 260px;              /* ALTURA FIXA */
+    object-fit: cover;          /* CORTA SEM DISTORCER */
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.8);
+    transition: transform 0.4s ease;
+}
+
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .cta {
+            background: rgba(255,255,255,0.95);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255,255,255,0.8);
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            background: linear-gradient(90deg, var(--verde-escuro), var(--rosa-escuro));
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(232,139,177,0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .cta a:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0,0,0,0.1);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+<div id="page-transition">
+    <div class="transition-glow"></div>
+</div>
+
+<div class="led one"></div>
+<div class="led two"></div>
+
+<header>
+
+    <a href="index.html" class="btn-voltar">
+        <i class="fas fa-arrow-left"></i> Voltar para a Clínica
+    </a>
+
+    <header class="topo-petcenter">
+    <img src="logoclinica1.png" alt="Health Vet Center" class="logo-petcenter">
+    <h1>Health Pet Center</h1>
+    <p>Estética Premium para pets que merecem cuidado, carinho e uma experiência relaxante digna de spa.</p>
+</header>
+</header>
+
+<section>
+    <div class="cards">
+        <div class="card">
+            <i class="fas fa-shower"></i>
+            <h3>Banho Relaxante</h3>
+            <p>Ambiente climatizado, técnicas low stress e produtos premium para o máximo conforto.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-cut"></i>
+            <h3>Tosa Estética</h3>
+            <p>Tosa personalizada respeitando raça, pelagem e estilo de vida do seu pet.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-spa"></i>
+            <h3>Spa Pet</h3>
+            <p>Hidratação, ozonioterapia e cuidados especiais para pele e pelagem.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 style="text-align:center; color:#4caf8f;">Momentos de Cuidado</h2>
+    <div class="gallery">
+        <img src="petcenter1.png" alt="Cachorro tomando banho">
+        <img src="petcenter2.png" alt="Pet no spa">
+        <img src="petcenter3.png" alt="Tosa delicada">
+    </div>
+</section>
+
+<section>
+    <div class="cta">
+        <h2>Agende um momento especial para seu pet</h2>
+        <p><br>
+        Terça a Sábado das 9h às 18h</p>
+        <a href="https://wa.me/551125611922" target="_blank">
+            <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
+        </a>
+    </div>
+</section>
+<section class="section" id="localizacao">
+    <h2>Localização Health Pet Center</h2>
+    <p>Visite nossa unidade de estética premium:</p>
+    <p><strong>Av. Miguel Badra, 1289 - Cidade Miguel Badra, Suzano - SP, 08690-000</strong></p>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.188548240064!2d-46.32269328511197!3d-23.539157969117337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce69cdaf72c1af%3A0x1a7e6e0b4926cc24!2sAv.%20Miguel%20Badra%2C%201289%20-%20Cidade%20Miguel%20Badra%2C%20Suzano%20-%20SP%2C%2008690-000!5e0!3m2!1spt-BR!2sbr!4v1702314300000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="320" 
+            style="border:0; border-radius: 15px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<footer>
+    © 2025 Health Pet Center – Estética Premium
+</footer>
+
+<script>
+document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+
+    // Apenas links internos
+    if (!href.startsWith('http') && !href.startsWith('#')) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const transition = document.getElementById('page-transition');
+            transition.classList.add('active');
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 600);
+        });
+    }
+});
+
+// Fade-in ao carregar
+window.addEventListener('load', () => {
+    const transition = document.getElementById('page-transition');
+    transition.classList.remove('active');
+});
+</script>
+
+</body>
+</html>
