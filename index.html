@@ -17,6 +17,58 @@
 <meta property="og:type" content="website"/>
 
 <style>
+.agendamento-box {
+    margin-top: 40px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.agendamento-box select {
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-shadow: 0 0 20px rgba(255,255,255,0.85);
+}
+
+.mensagem-info {
+    background: rgba(255,255,255,0.9);
+    padding: 18px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #333;
+    display: none;
+    box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+.agendamento-box button {
+    background: linear-gradient(90deg, #4caf8f, #e88bb1);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(232,139,177,0.7);
+    transition: transform 0.3s ease;
+}
+
+.agendamento-box button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.agendamento-box button:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
 :root {
     --verde: #c9f2dc;
     --verde-escuro: #4caf8f;
@@ -253,12 +305,39 @@ footer {
         <a href="#visao">Visão</a>
         <a href="#contato">Contato</a>
     </div>
-    <a href="healthpetcenter.html" class="menu-destaque menu-bottom">Health Pet Center II</a>
 </nav>
 
 <div class="banner">
     <h1>Excelência em cuidar do seu pet</h1>
 </div>
+<section class="section" id="agendamento-inteligente">
+    <h2>Agendamento Inteligente</h2>
+    <p style="text-align:center; max-width:720px; margin:auto;">
+        Escolha o tipo de animal e o serviço desejado para receber orientações
+        e agendar seu atendimento pelo WhatsApp.
+    </p>
+
+    <div class="agendamento-box">
+
+        <select id="animalSelect" onchange="atualizarServicos()">
+            <option value="">Tipo de animal</option>
+            <option value="Cão">Cão</option>
+            <option value="Gato">Gato</option>
+            <option value="Silvestre">Silvestre</option>
+        </select>
+
+        <select id="servicoSelect" onchange="mostrarMensagem()" disabled>
+            <option value="">Tipo de serviço</option>
+        </select>
+
+        <div id="mensagemInfo" class="mensagem-info"></div>
+
+        <button id="btnWhats" onclick="enviarWhats()" disabled>
+            Falar no WhatsApp
+        </button>
+
+    </div>
+</section>
 <section class="section" id="servicos">
     <h2>Serviços Oferecidos</h2>
     <div class="services">
@@ -308,16 +387,6 @@ footer {
             <!-- Demais imagens -->
             <button class="next">&#10095;</button>
         </div>
-    </div>
-</section>
-<section class="section" id="inicio">
-    <h2>Conheça a Unidade II - Health Pet Center</h2>
-    <p style="text-align:center; max-width:700px; margin:auto;">
-        Um espaço exclusivo de estética premium, banho, tosa e spa pet,
-        criado para proporcionar conforto, bem-estar e beleza.
-    </p>
-    <div style="text-align:center; margin-top:30px;">
-        <a href="healthpetcenter.html" class="menu-destaque">Visitar Estética Premium</a>
     </div>
 </section>
 <section class="section" id="contato">
@@ -385,6 +454,93 @@ document.querySelectorAll('a[href]').forEach(link => {
 window.addEventListener('load', () => {
     document.getElementById('page-transition').classList.remove('active');
 });
+const servicosPorAnimal = {
+    "Cão": [
+        "Consulta Clínica",
+        "Vacinação",
+        "Castração",
+        "Banho e Tosa",
+        "Exames"
+    ],
+    "Gato": [
+        "Consulta Clínica",
+        "Vacinação",
+        "Castração",
+        "Exames"
+    ],
+    "Silvestre": [
+        "Consulta Clínica",
+        "Exames"
+    ]
+};
+
+const mensagensServico = {
+    "Consulta Clínica":
+        "Para realizar a consulta clínica, basta entrar em contato pelo WhatsApp para agendar o melhor horário.",
+
+    "Vacinação":
+        "Para iniciar o protocolo vacinal, é necessário passar primeiro por uma consulta clínica, onde o médico veterinário avaliará a saúde do seu pet.",
+
+    "Castração":
+        "Para realizar a castração, é necessário uma consulta clínica prévia e exames, garantindo a segurança do procedimento.",
+
+    "Banho e Tosa":
+        "Para o serviço de banho e tosa, é importante agendar previamente pelo WhatsApp para garantir disponibilidade.",
+
+    "Exames":
+        "Para a realização de exames, é necessária uma consulta clínica para avaliação e solicitação adequada."
+};
+
+function atualizarServicos() {
+    const animal = document.getElementById('animalSelect').value;
+    const servicoSelect = document.getElementById('servicoSelect');
+
+    servicoSelect.innerHTML = '<option value="">Tipo de serviço</option>';
+    document.getElementById('mensagemInfo').style.display = 'none';
+    document.getElementById('btnWhats').disabled = true;
+
+    if (!animal) {
+        servicoSelect.disabled = true;
+        return;
+    }
+
+    servicosPorAnimal[animal].forEach(servico => {
+        const opt = document.createElement('option');
+        opt.value = servico;
+        opt.textContent = servico;
+        servicoSelect.appendChild(opt);
+    });
+
+    servicoSelect.disabled = false;
+}
+
+function mostrarMensagem() {
+    const servico = document.getElementById('servicoSelect').value;
+    const mensagemBox = document.getElementById('mensagemInfo');
+
+    if (!servico) {
+        mensagemBox.style.display = 'none';
+        document.getElementById('btnWhats').disabled = true;
+        return;
+    }
+
+    mensagemBox.textContent = mensagensServico[servico];
+    mensagemBox.style.display = 'block';
+    document.getElementById('btnWhats').disabled = false;
+}
+
+function enviarWhats() {
+    const animal = document.getElementById('animalSelect').value;
+    const servico = document.getElementById('servicoSelect').value;
+
+    const texto = `Olá! Gostaria de agendar atendimento para *${animal}*.\nServiço: *${servico}*.\n\n${mensagensServico[servico]} 🐾`;
+    const telefone = '551125611922';
+
+    window.open(
+        `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`,
+        '_blank'
+    );
+}
 </script>
 </body>
 </html>
