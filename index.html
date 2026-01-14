@@ -15,7 +15,63 @@
 <meta property="og:image" content="https://www.healthvetcenter.com.br/logoclinica.png"/>
 <meta property="og:url" content="https://www.healthvetcenter.com.br"/>
 <meta property="og:type" content="website"/>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["VeterinaryCare", "LocalBusiness"],
+  "@id": "https://www.healthvetcenter.com.br/#business",
+  "name": "Health Vet Center Dra. Bárbara Brandão",
+  "url": "https://www.healthvetcenter.com.br",
+  "image": "https://www.healthvetcenter.com.br/logoclinica.png",
+  "telephone": "+551125611922",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Washington Luiz, 70",
+    "addressLocality": "Suzano",
+    "addressRegion": "SP",
+    "postalCode": "08675-010",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.542100,
+    "longitude": -46.308100
+  },
+  "hasMap": "https://www.google.com/maps?q=Rua+Washington+Luiz,+70,+Suzano",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "16:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": "Suzano"
+  },
+  "sameAs": [
+    "https://www.google.com/maps/search/?api=1&query=Health+Vet+Center+Dra+B%C3%A1rbara+Brand%C3%A3o"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "@id":"https://www.healthvetcenter.com.br/#website",
+  "url":"https://www.healthvetcenter.com.br",
+  "name":"Health Vet Center",
+  "inLanguage":"pt-BR"
+}
+</script>
 <style>
 .avaliacoes-carousel {
     max-width: 700px;
@@ -340,6 +396,24 @@ footer {
     .carousel { width: 90%; height: auto; }
     .carousel img { height: auto; }
 }
+.whats-float{
+  position: fixed; right: 18px; bottom: 18px;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; color: #fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 28px; z-index: 9999;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+}
+.to-top{
+  position: fixed; right: 18px; bottom: 86px;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  display:none; z-index: 9999;
+}
+.reveal { opacity: 0; transform: translateY(14px); transition: .6s ease; }
+.reveal.show { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 
@@ -481,7 +555,7 @@ Indico 100%"</p>
     <div class="avaliacao">
         <div class="estrelas">★★★★★</div>
         <p>"Maravilhosa, o Tchallinha amou o bainho e vai ter outras vezes, com certeza ♥️"</p>
-        <span>— Thais Sabina (Google)</span>
+        <span>—  (Google)</span>
     </div>
 
     <button class="next-avaliacao">&#10095;</button>
@@ -495,7 +569,6 @@ Indico 100%"</p>
         ⭐ Ver mais avaliações no Google
     </a>
 </div>
-    </div>
 </section>
 <section class="section" id="contato">
     <h2>Fale Conosco</h2>
@@ -599,6 +672,17 @@ const mensagensServico = {
         "Para a realização de exames, é necessária uma consulta clínica para avaliação e solicitação adequada."
 };
 
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  toTop.style.display = window.scrollY > 600 ? 'block' : 'none';
+});
+document.querySelectorAll('.section, .service').forEach(el => el.classList.add('reveal'));
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+},{threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 function atualizarServicos() {
     const animal = document.getElementById('animalSelect').value;
     const servicoSelect = document.getElementById('servicoSelect');
@@ -686,5 +770,10 @@ function iniciarAuto() {
 
 iniciarAuto();
 </script>
+<a class="whats-float" href="https://wa.me/551125611922" target="_blank" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<button class="to-top" id="toTop" aria-label="Voltar ao topo">↑</button>
 </body>
 </html>
