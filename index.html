@@ -17,6 +17,62 @@
 <meta property="og:type" content="website"/>
 
 <style>
+.avaliacoes-carousel {
+    max-width: 700px;
+    margin: 40px auto 0;
+    position: relative;
+}
+.prev-avaliacao,
+.next-avaliacao {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e88bb1;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(232,139,177,0.7);
+}
+
+.prev-avaliacao { left: -20px; }
+.next-avaliacao { right: -20px; }
+.avaliacao {
+    display: none;
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255,255,255,0.8);
+    animation: fade 1s ease;
+}
+
+.avaliacao.active {
+    display: block;
+}
+
+.estrelas {
+    color: #f5b301;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.avaliacao p {
+    font-size: 1.05em;
+    margin-bottom: 12px;
+}
+
+.avaliacao span {
+    font-size: 0.9em;
+    color: #666;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 .agendamento-box {
     margin-top: 40px;
     max-width: 460px;
@@ -389,6 +445,58 @@ footer {
         </div>
     </div>
 </section>
+<section class="section" id="avaliacoes">
+    <h2>Avaliações dos nossos clientes</h2>
+
+    <div class="avaliacoes-carousel">
+    <button class="prev-avaliacao">&#10094;</button>
+
+    <div class="avaliacao active">
+        <div class="estrelas">★★★★★</div>
+        <p>"Simplesmente impecável!
+Fui muito bem atendido desde o primeiro contato até o final do atendimento. A equipe é extremamente atenciosa, profissional e demonstra um carinho genuíno pelos animais."</p>
+        <span>— Leandro Laporte (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Atendimento maravilhoso.
+Dra Bárbara super atenciosa e carinhosa com todos os procedimentos.
+Indico 100%"</p>
+        <span>— Adriano Gouveia (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Melhor atendimento veterinário que conheci em Suzano, profissional prestativa e que realmente tem amor pelo animais que atende (com paciência, carinho, atenção e nos passando segurança em todos os protocolos realizados. Recomendo a visita e todos os serviços prestados pela Health e pela médica veterinária Barbara."</p>
+        <span>— Lóris Fernandes (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Meus bebês adoram ir tomar banho, voltam muito felizes!!!"</p>
+        <span>— Sandra Aparecida (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Maravilhosa, o Tchallinha amou o bainho e vai ter outras vezes, com certeza ♥️"</p>
+        <span>— Thais Sabina (Google)</span>
+    </div>
+
+    <button class="next-avaliacao">&#10095;</button>
+</div>
+
+<div style="text-align:center; margin-top:25px;">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Health+Vet+Center+Dra+Bárbara+Brandão"
+      target="_blank"
+      class="menu-destaque">
+        ⭐ Ver mais avaliações no Google
+    </a>
+</div>
+    </div>
+</section>
 <section class="section" id="contato">
     <h2>Fale Conosco</h2>
     <div class="contato-container">
@@ -541,6 +649,42 @@ function enviarWhats() {
         '_blank'
     );
 }
+const avaliacoes = document.querySelectorAll('.avaliacao');
+let avaliacaoIndex = 0;
+let intervaloAvaliacoes;
+
+function mostrarAvaliacao(index) {
+    avaliacoes.forEach(a => a.classList.remove('active'));
+    avaliacoes[index].classList.add('active');
+}
+
+function proximaAvaliacao() {
+    avaliacaoIndex = (avaliacaoIndex + 1) % avaliacoes.length;
+    mostrarAvaliacao(avaliacaoIndex);
+}
+
+function avaliacaoAnterior() {
+    avaliacaoIndex = (avaliacaoIndex - 1 + avaliacoes.length) % avaliacoes.length;
+    mostrarAvaliacao(avaliacaoIndex);
+}
+
+document.querySelector('.next-avaliacao').onclick = () => {
+    clearInterval(intervaloAvaliacoes);
+    proximaAvaliacao();
+    iniciarAuto();
+};
+
+document.querySelector('.prev-avaliacao').onclick = () => {
+    clearInterval(intervaloAvaliacoes);
+    avaliacaoAnterior();
+    iniciarAuto();
+};
+
+function iniciarAuto() {
+    intervaloAvaliacoes = setInterval(proximaAvaliacao, 5000);
+}
+
+iniciarAuto();
 </script>
 </body>
 </html>
