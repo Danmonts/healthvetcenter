@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<!-- Event snippet for Recurso &quot;clique para ligar&quot; conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+	<title>Veterinário em Suzano | Clínica Veterinária Health Vet Center Dra. Bárbara</title>
+
+<meta name="description" content="Clínica veterinária em Suzano especializada em consultas, vacinas, cirurgias, exames e banho e tosa. Atendimento humanizado para cães, gatos e pets silvestres. Agende pelo WhatsApp.">
+
+<meta name="keywords" content="veterinário Suzano, clínica veterinária Suzano, veterinário perto de mim, banho e tosa Suzano, castração Suzano, consulta veterinária Suzano">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="Health Vet Center">
+
+<link rel="canonical" href="https://www.healthvetcenter.com.br">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Veterinário em Suzano | Health Vet Center"/>
+<meta property="og:description" content="Atendimento veterinário completo em Suzano. Consultas, exames, cirurgias e banho e tosa."/>
+<meta property="og:image" content="https://www.healthvetcenter.com.br/logoclinica.png"/>
+<meta property="og:url" content="https://www.healthvetcenter.com.br"/>
+<meta property="og:type" content="website"/>
+
+<!-- Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18092606734"></script>
 <script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18092606734');
+
 function gtag_report_conversion(url) {
   var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
+    if (url) window.location = url;
   };
   gtag('event', 'conversion', {
       'send_to': 'AW-18092606734/huqNCN_B6KAcEI6KnbND',
@@ -17,6 +38,33 @@ function gtag_report_conversion(url) {
       'event_callback': callback
   });
   return false;
+}
+</script>
+
+<!-- SEO LOCAL FORTE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VeterinaryCare",
+  "name": "Health Vet Center Dra. Bárbara Brandão",
+  "image": "https://www.healthvetcenter.com.br/logoclinica.png",
+  "telephone": "+5511914925164",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Washington Luiz, 70",
+    "addressLocality": "Suzano",
+    "addressRegion": "SP",
+    "postalCode": "08675-010",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.542100,
+    "longitude": -46.308100
+  },
+  "url": "https://www.healthvetcenter.com.br",
+  "areaServed": "Suzano",
+  "openingHours": "Mo-Sa 09:00-18:00"
 }
 </script>
 
@@ -484,9 +532,9 @@ footer {
 
         <div id="mensagemInfo" class="mensagem-info"></div>
 
-        <button id="btnWhats" onclick="enviarWhats()" disabled>
-            Falar no WhatsApp
-        </button>
+        <button id="btnWhats" onclick="return enviarWhats()" disabled>
+    Falar no WhatsApp
+</button>
 
     </div>
 </section>
@@ -751,13 +799,14 @@ function enviarWhats() {
     const animal = document.getElementById('animalSelect').value;
     const servico = document.getElementById('servicoSelect').value;
 
-    const texto = `Olá! Gostaria de agendar atendimento para *${animal}*.\nServiço: *${servico}*.\n\n${mensagensServico[servico]} 🐾`;
+    if (!animal || !servico) return;
+
+    const texto = `Olá! Gostaria de agendar atendimento para ${animal}.\nServiço: ${servico} 🐾`;
     const telefone = '5511914925164';
 
-    window.open(
-        `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`,
-        '_blank'
-    );
+    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
+
+    return gtag_report_conversion(url);
 }
 const avaliacoes = document.querySelectorAll('.avaliacao');
 let avaliacaoIndex = 0;
