@@ -1,148 +1,800 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
-<!-- Google Ads Conversion -->
+	<!-- Event snippet for Recurso &quot;clique para ligar&quot; conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
 function gtag_report_conversion(url) {
   var callback = function () {
-    if (url) {
-      window.open(url, '_blank');
+    if (typeof(url) != 'undefined') {
+      window.location = url;
     }
   };
   gtag('event', 'conversion', {
       'send_to': 'AW-18092606734/huqNCN_B6KAcEI6KnbND',
+      'value': 1.0,
+      'currency': 'BRL',
       'event_callback': callback
   });
   return false;
 }
 </script>
 
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18092606734"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'AW-18092606734');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18092606734');
 </script>
+	
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Health Vet Center - Clínica Veterinária</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Vet Center</title>
-
+<!-- Ícones e Fonte -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+<!-- OG Tags para WhatsApp -->
+<meta property="og:title" content="Health Vet Center - Clínica Veterinária"/>
+<meta property="og:description" content="Excelência em cuidar do seu pet, com serviços de saúde, estética e bem-estar."/>
+<meta property="og:image" content="https://www.healthvetcenter.com.br/logoclinica.png"/>
+<meta property="og:url" content="https://www.healthvetcenter.com.br"/>
+<meta property="og:type" content="website"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["VeterinaryCare", "LocalBusiness"],
+  "@id": "https://www.healthvetcenter.com.br/#business",
+  "name": "Health Vet Center Dra. Bárbara Brandão",
+  "url": "https://www.healthvetcenter.com.br",
+  "image": "https://www.healthvetcenter.com.br/logoclinica.png",
+  "telephone": "+5511914925164",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Washington Luiz, 70",
+    "addressLocality": "Suzano",
+    "addressRegion": "SP",
+    "postalCode": "08675-010",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.542100,
+    "longitude": -46.308100
+  },
+  "hasMap": "https://www.google.com/maps?q=Rua+Washington+Luiz,+70,+Suzano",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": "Suzano"
+  },
+  "sameAs": [
+    "https://www.google.com/maps/search/?api=1&query=Health+Vet+Center+Dra+B%C3%A1rbara+Brand%C3%A3o"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "@id":"https://www.healthvetcenter.com.br/#website",
+  "url":"https://www.healthvetcenter.com.br",
+  "name":"Health Vet Center",
+  "inLanguage":"pt-BR"
+}
+</script>
 <style>
-body{font-family:Poppins,sans-serif;margin:0;background:#f5f5f5}
-.section{padding:60px 20px;max-width:1000px;margin:auto}
-.agendamento-box{display:flex;flex-direction:column;gap:15px;max-width:400px;margin:auto}
-select,button{padding:12px;border-radius:10px;border:none}
-button{background:#4caf8f;color:#fff;cursor:pointer}
-button:disabled{opacity:.5}
-</style>
+.avaliacoes-carousel {
+    max-width: 700px;
+    margin: 40px auto 0;
+    position: relative;
+}
+.prev-avaliacao,
+.next-avaliacao {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e88bb1;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(232,139,177,0.7);
+}
 
+.prev-avaliacao { left: -20px; }
+.next-avaliacao { right: -20px; }
+.avaliacao {
+    display: none;
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255,255,255,0.8);
+    animation: fade 1s ease;
+}
+
+.avaliacao.active {
+    display: block;
+}
+
+.estrelas {
+    color: #f5b301;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.avaliacao p {
+    font-size: 1.05em;
+    margin-bottom: 12px;
+}
+
+.avaliacao span {
+    font-size: 0.9em;
+    color: #666;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.agendamento-box {
+    margin-top: 40px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.agendamento-box select {
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-shadow: 0 0 20px rgba(255,255,255,0.85);
+}
+
+.mensagem-info {
+    background: rgba(255,255,255,0.9);
+    padding: 18px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #333;
+    display: none;
+    box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+.agendamento-box button {
+    background: linear-gradient(90deg, #4caf8f, #e88bb1);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(232,139,177,0.7);
+    transition: transform 0.3s ease;
+}
+
+.agendamento-box button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.agendamento-box button:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+:root {
+    --verde: #c9f2dc;
+    --verde-escuro: #4caf8f;
+    --amarelo: #fff2b2;
+    --rosa: #ffd6e8;
+    --rosa-escuro: #e88bb1;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, var(--verde), var(--amarelo), var(--rosa));
+    color: #333;
+    overflow-x: hidden;
+    scroll-padding-top: 80px; /* <-- Corrige sobreposição do nav */
+}
+
+/* TRANSIÇÃO ENTRE PÁGINAS */
+#page-transition {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    z-index: 9999;
+}
+#page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.transition-glow {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #c9f2dc, #ffd6e8, transparent 70%);
+    filter: blur(40px);
+    animation: pulse 1.5s infinite alternate;
+}
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.7; }
+    to { transform: scale(1.2); opacity: 1; }
+}
+
+.menu-destaque {
+    background: linear-gradient(90deg, #4caf8f, #e88bb1);
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(232,139,177,0.8);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* LED Glow */
+.led {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.7), transparent 70%);
+    filter: blur(70px);
+    z-index: 0;
+    animation: float 8s infinite alternate;
+}
+.led.one { top: -100px; left: -100px; }
+.led.two { bottom: -100px; right: -100px; animation-delay: 3s; }
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(40px); }
+}
+
+header { text-align: center; padding: 30px; position: relative; z-index: 1; }
+header img { max-width: 180px; }
+
+/* NAV */
+nav {
+    background: rgba(255,255,255,0.9);
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+nav .menu-top {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+nav a {
+    color: var(--verde-escuro);
+    text-decoration: none;
+    font-weight: 600;
+}
+nav a:hover { color: var(--rosa-escuro); }
+nav a.menu-bottom {
+    display: block;
+    margin-top: 10px;
+}
+
+/* BANNER */
+.banner {
+    height: 50vh;
+    background: url('goldens.png') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.banner h1 {
+    background: rgba(255,255,255,0.85);
+    padding: 25px 45px;
+    border-radius: 20px;
+    color: var(--verde-escuro);
+    box-shadow: 0 0 30px rgba(255,255,255,0.8);
+}
+
+/* SECTION */
+.section {
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    scroll-margin-top: 80px; /* <-- Corrige sobreposição do nav */
+}
+.section h2 {
+    color: var(--verde-escuro);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* SERVICES */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+.service {
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.7);
+    transition: transform 0.3s ease;
+}
+.service:hover { transform: translateY(-10px); }
+
+/* CAROUSEL */
+.carousel-container { text-align: center; margin-top: 40px; }
+.carousel {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: auto;
+}
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    display: none;
+    background: white;
+}
+.carousel img.active { display: block; }
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--rosa-escuro);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; }
+
+/* CONTATO */
+.contato-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+.contato-info, .contato-visual {
+    flex: 1;
+    min-width: 280px;
+}
+.contato-info p i { color: var(--verde-escuro); margin-right: 8px; }
+iframe { width: 100%; height: 220px; border: none; border-radius: 20px; }
+
+footer {
+    background: rgba(0,0,0,0.15);
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9em;
+}
+
+/* MOBILE ADAPT */
+@media(max-width:600px){
+    nav .menu-top { gap: 15px; }
+    .carousel { width: 90%; height: auto; }
+    .carousel img { height: auto; }
+}
+.whats-float{
+  position: fixed; right: 18px; bottom: 18px;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; color: #fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 28px; z-index: 9999;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+}
+.to-top{
+  position: fixed; right: 18px; bottom: 86px;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  display:none; z-index: 9999;
+}
+.reveal { opacity: 0; transform: translateY(14px); transition: .6s ease; }
+.reveal.show { opacity: 1; transform: translateY(0); }
+</style>
 </head>
 
 <body>
+<div id="page-transition">
+    <div class="transition-glow"></div>
+</div>
 
-<section class="section">
-<h2 style="text-align:center">Agendamento Inteligente</h2>
+<div class="led one"></div>
+<div class="led two"></div>
 
-<div class="agendamento-box">
+<header>
+    <img src="logoclinica.png" alt="Health Vet Center">
+</header>
 
-<select id="animalSelect" onchange="atualizarServicos()">
-<option value="">Tipo de animal</option>
-<option value="Cão">Cão</option>
-<option value="Gato">Gato</option>
-<option value="Silvestre">Silvestre</option>
-</select>
+<nav>
+    <div class="menu-top">
+        <a href="#servicos">Serviços</a>
+        <a href="#visao">Visão</a>
+        <a href="#contato">Contato</a>
+    </div>
+</nav>
 
-<select id="servicoSelect" onchange="mostrarMensagem()" disabled>
-<option value="">Tipo de serviço</option>
-</select>
+<div class="banner">
+    <h1>Excelência em cuidar do seu pet</h1>
+</div>
+<section class="section" id="agendamento-inteligente">
+    <h2>Agendamento Inteligente</h2>
+    <p style="text-align:center; max-width:720px; margin:auto;">
+        Escolha o tipo de animal e o serviço desejado para receber orientações
+        e agendar seu atendimento pelo WhatsApp.
+    </p>
 
-<div id="mensagemInfo" style="display:none"></div>
+    <div class="agendamento-box">
 
-<button id="btnWhats" onclick="enviarWhats()" disabled>
-Falar no WhatsApp
-</button>
+        <select id="animalSelect" onchange="atualizarServicos()">
+            <option value="">Tipo de animal</option>
+            <option value="Cão">Cão</option>
+            <option value="Gato">Gato</option>
+            <option value="Silvestre">Silvestre</option>
+        </select>
 
+        <select id="servicoSelect" onchange="mostrarMensagem()" disabled>
+            <option value="">Tipo de serviço</option>
+        </select>
+
+        <div id="mensagemInfo" class="mensagem-info"></div>
+
+        <button id="btnWhats" onclick="enviarWhats()" disabled>
+            Falar no WhatsApp
+        </button>
+
+    </div>
+</section>
+<section class="section" id="servicos">
+    <h2>Serviços Oferecidos</h2>
+    <div class="services">
+        <div class="service"><h3>Consulta Clínica</h3><p>Atendimento médico veterinário para cães, gatos e pets exóticos.</p></div>
+        <div class="service"><h3>Vacinação</h3><p>Protocolos completos, atualizados com vacinas éticas e aplicados de forma low stress.</p></div>
+        <div class="service"><h3>Exames</h3><p>Exames completos para diagnóstico preciso.</p></div>
+        <div class="service"><h3>Cirurgias</h3><p>Cirurgias eletivas e emergenciais com segurança.</p></div>
+        <div class="service"><h3>Odontologia</h3><p>Cuidados com a saúde bucal do seu pet.</p></div>
+        <div class="service"><h3>Internação</h3><p>Ambiente seguro, monitoramento constante e cuidados individualizados para pets em recuperação.</p></div>
+        <div class="service"><h3>Consulta Nutricional</h3><p>Alimentação natural equilibrada e balanceada individualmente para o seu pet.</p></div>
+        <div class="service"><h3>Especialidades</h3><p>Cardiologia, dermatologia, oftalmologia e muito mais.</p></div>
+        <div class="service"><h3>Creche para cães de pequeno porte</h3><p>Ambiente seguro e supervisionado, com atividades, brincadeiras e descanso para o bem estar físico e emocional do seu cãozinho.</p></div>
+    </div>
+</section>
+<section class="section" id="visao">
+    <h2>Nossa Visão</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        Medicina veterinária moderna, humanizada e ética, promovendo saúde e qualidade de vida.
+    </p>
+    <div class="carousel-container">
+        <h3>Momentos</h3>
+        <div class="carousel">
+            <button class="prev">&#10094;</button>
+            <img src="gifcreche1.png" class="active">
+            <img src="gifcreche2.png">
+            <img src="gifcreche3.png">
+	    <img src="gifcreche4.png">
+            <img src="gifcreche5.png">
+            <img src="gifcreche6.png">
+            <img src="gifcreche7.png">
+            <img src="gifcreche8.png">
+            <img src="gifcreche9.png">
+            <img src="gifcreche10.png">
+            <img src="gifcreche11.png">
+            <img src="gifcreche12.png">
+            <img src="gifcreche13.png">
+            <img src="gifcreche14.png">
+            <img src="gifcreche15.png">
+            <img src="gifcreche16.png">
+            <img src="gifcreche17.png">
+            <img src="gifcreche18.png">
+            <img src="gifcreche19.png">
+            <img src="gifcreche20.png">
+            <img src="gifcreche21.png">
+            <img src="gifcreche22.png">
+            <img src="gifcreche23.png">
+            <!-- Demais imagens -->
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
+</section>
+<section class="section" id="avaliacoes">
+    <h2>Avaliações dos nossos clientes</h2>
+
+    <div class="avaliacoes-carousel">
+    <button class="prev-avaliacao">&#10094;</button>
+
+    <div class="avaliacao active">
+        <div class="estrelas">★★★★★</div>
+        <p>"Simplesmente impecável!
+Fui muito bem atendido desde o primeiro contato até o final do atendimento. A equipe é extremamente atenciosa, profissional e demonstra um carinho genuíno pelos animais."</p>
+        <span>— Leandro Laporte (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Atendimento maravilhoso.
+Dra Bárbara super atenciosa e carinhosa com todos os procedimentos.
+Indico 100%"</p>
+        <span>— Adriano Gouveia (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Melhor atendimento veterinário que conheci em Suzano, profissional prestativa e que realmente tem amor pelo animais que atende (com paciência, carinho, atenção e nos passando segurança em todos os protocolos realizados. Recomendo a visita e todos os serviços prestados pela Health e pela médica veterinária Barbara."</p>
+        <span>— Lóris Fernandes (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Meus bebês adoram ir tomar banho, voltam muito felizes!!!"</p>
+        <span>— Sandra Aparecida (Google)</span>
+    </div>
+
+    <div class="avaliacao">
+        <div class="estrelas">★★★★★</div>
+        <p>"Maravilhosa, o Tchallinha amou o bainho e vai ter outras vezes, com certeza ♥️"</p>
+        <span>—  (Google)</span>
+    </div>
+
+    <button class="next-avaliacao">&#10095;</button>
+</div>
+
+<div style="text-align:center; margin-top:25px;">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Health+Vet+Center+Dra+Bárbara+Brandão"
+      target="_blank"
+      class="menu-destaque">
+        ⭐ Ver mais avaliações no Google
+    </a>
 </div>
 </section>
+<section class="section" id="contato">
+    <h2>Fale Conosco</h2>
+    <div class="contato-container">
+        <div class="contato-info">
+            <p><i class="fas fa-map-marker-alt"></i> Rua Washington Luiz, 70 - Suzano/SP</p>
+            <p><i class="fas fa-phone"></i> (11) 91492-5164</p>
+            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/55914925164">WhatsApp</a></p>
+            <p><i class="fas fa-clock"></i> Segunda a Sábado das 9h às 18h </p>
+        </div>
+        <div class="contato-visual">
+            <iframe src="https://www.google.com/maps?q=Rua+Washington+Luiz,+70,+Suzano&output=embed"></iframe>
+        </div>
+    </div>
+</section>
 
+<footer>
+    Copyright © 2020-2026 Health Vet Center - Todos os direitos reservados
+</footer>
+<a class="whats-float" href="https://wa.me/5511914925164" target="_blank" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<button class="to-top" id="toTop" aria-label="Voltar ao topo">↑</button>
 <script>
+const images = document.querySelectorAll('.carousel img');
+let index = 0;
+let carouselInterval = setInterval(nextImage, 3000);
 
-const servicosPorAnimal={
-"Cão":["Consulta Clínica","Vacinação","Castração","Banho e Tosa","Exames"],
-"Gato":["Consulta Clínica","Vacinação","Castração","Exames"],
-"Silvestre":["Consulta Clínica","Exames"]
-};
-
-const mensagensServico={
-"Consulta Clínica":"Para realizar a consulta clínica, basta entrar em contato pelo WhatsApp.",
-"Vacinação":"É necessário passar por consulta antes da vacinação.",
-"Castração":"Necessário consulta e exames prévios.",
-"Banho e Tosa":"Agende previamente pelo WhatsApp.",
-"Exames":"Necessário avaliação clínica prévia."
-};
-
-function atualizarServicos(){
-const animal=document.getElementById('animalSelect').value;
-const servicoSelect=document.getElementById('servicoSelect');
-
-servicoSelect.innerHTML='<option value="">Tipo de serviço</option>';
-document.getElementById('mensagemInfo').style.display='none';
-document.getElementById('btnWhats').disabled=true;
-
-if(!animal){
-servicoSelect.disabled=true;
-return;
+function showImage(i){
+    images.forEach(img => img.classList.remove('active'));
+    images[i].classList.add('active');
 }
 
-servicosPorAnimal[animal].forEach(servico=>{
-const opt=document.createElement('option');
-opt.value=servico;
-opt.textContent=servico;
-servicoSelect.appendChild(opt);
+function nextImage(){
+    index = (index + 1) % images.length;
+    showImage(index);
+}
+
+function prevImage(){
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
+}
+
+document.querySelector('.carousel .next').addEventListener('click', ()=>{
+    clearInterval(carouselInterval);
+    nextImage();
+    carouselInterval = setInterval(nextImage, 3000);
+});
+document.querySelector('.carousel .prev').addEventListener('click', ()=>{
+    clearInterval(carouselInterval);
+    prevImage();
+    carouselInterval = setInterval(nextImage, 3000);
 });
 
-servicoSelect.disabled=false;
+// Página transition
+document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href.startsWith('http') && !href.startsWith('#')) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const transition = document.getElementById('page-transition');
+            transition.classList.add('active');
+            setTimeout(() => { window.location.href = href; }, 600);
+        });
+    }
+});
+window.addEventListener('load', () => {
+    document.getElementById('page-transition').classList.remove('active');
+});
+const servicosPorAnimal = {
+    "Cão": [
+        "Consulta Clínica",
+        "Vacinação",
+        "Castração",
+        "Banho e Tosa",
+        "Exames"
+    ],
+    "Gato": [
+        "Consulta Clínica",
+        "Vacinação",
+        "Castração",
+        "Exames"
+    ],
+    "Silvestre": [
+        "Consulta Clínica",
+        "Exames"
+    ]
+};
+
+const mensagensServico = {
+    "Consulta Clínica":
+        "Para realizar a consulta clínica, basta entrar em contato pelo WhatsApp para agendar o melhor horário.",
+
+    "Vacinação":
+        "Para iniciar o protocolo vacinal, é necessário passar primeiro por uma consulta clínica, onde o médico veterinário avaliará a saúde do seu pet.",
+
+    "Castração":
+        "Para realizar a castração, é necessário uma consulta clínica prévia e exames, garantindo a segurança do procedimento.",
+
+    "Banho e Tosa":
+        "Para o serviço de banho e tosa, é importante agendar previamente pelo WhatsApp para garantir disponibilidade.",
+
+    "Exames":
+        "Para a realização de exames, é necessária uma consulta clínica para avaliação e solicitação adequada."
+};
+
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  toTop.style.display = window.scrollY > 600 ? 'block' : 'none';
+});
+document.querySelectorAll('.section, .service').forEach(el => el.classList.add('reveal'));
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+},{threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+function atualizarServicos() {
+    const animal = document.getElementById('animalSelect').value;
+    const servicoSelect = document.getElementById('servicoSelect');
+
+    servicoSelect.innerHTML = '<option value="">Tipo de serviço</option>';
+    document.getElementById('mensagemInfo').style.display = 'none';
+    document.getElementById('btnWhats').disabled = true;
+
+    if (!animal) {
+        servicoSelect.disabled = true;
+        return;
+    }
+
+    servicosPorAnimal[animal].forEach(servico => {
+        const opt = document.createElement('option');
+        opt.value = servico;
+        opt.textContent = servico;
+        servicoSelect.appendChild(opt);
+    });
+
+    servicoSelect.disabled = false;
 }
 
-function mostrarMensagem(){
-const servico=document.getElementById('servicoSelect').value;
-const box=document.getElementById('mensagemInfo');
+function mostrarMensagem() {
+    const servico = document.getElementById('servicoSelect').value;
+    const mensagemBox = document.getElementById('mensagemInfo');
 
-if(!servico){
-box.style.display='none';
-document.getElementById('btnWhats').disabled=true;
-return;
+    if (!servico) {
+        mensagemBox.style.display = 'none';
+        document.getElementById('btnWhats').disabled = true;
+        return;
+    }
+
+    mensagemBox.textContent = mensagensServico[servico];
+    mensagemBox.style.display = 'block';
+    document.getElementById('btnWhats').disabled = false;
 }
 
-box.textContent=mensagensServico[servico];
-box.style.display='block';
-document.getElementById('btnWhats').disabled=false;
+function enviarWhats() {
+    const animal = document.getElementById('animalSelect').value;
+    const servico = document.getElementById('servicoSelect').value;
+
+    const texto = `Olá! Gostaria de agendar atendimento para *${animal}*.\nServiço: *${servico}*.\n\n${mensagensServico[servico]} 🐾`;
+    const telefone = '5511914925164';
+
+    window.open(
+        `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`,
+        '_blank'
+    );
+}
+const avaliacoes = document.querySelectorAll('.avaliacao');
+let avaliacaoIndex = 0;
+let intervaloAvaliacoes;
+
+function mostrarAvaliacao(index) {
+    avaliacoes.forEach(a => a.classList.remove('active'));
+    avaliacoes[index].classList.add('active');
 }
 
-function enviarWhats(){
-const animal=document.getElementById('animalSelect').value;
-const servico=document.getElementById('servicoSelect').value;
-
-if(!animal||!servico)return;
-
-const texto=`Olá! Gostaria de agendar atendimento para *${animal}*.\nServiço: *${servico}*.\n\n${mensagensServico[servico]} 🐾`;
-const telefone='5511914925164';
-
-const url=`https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
-
-// fallback
-setTimeout(()=>{window.open(url,'_blank')},800);
-
-// conversão
-gtag_report_conversion(url);
+function proximaAvaliacao() {
+    avaliacaoIndex = (avaliacaoIndex + 1) % avaliacoes.length;
+    mostrarAvaliacao(avaliacaoIndex);
 }
 
+function avaliacaoAnterior() {
+    avaliacaoIndex = (avaliacaoIndex - 1 + avaliacoes.length) % avaliacoes.length;
+    mostrarAvaliacao(avaliacaoIndex);
+}
+
+document.querySelector('.next-avaliacao').onclick = () => {
+    clearInterval(intervaloAvaliacoes);
+    proximaAvaliacao();
+    iniciarAuto();
+};
+
+document.querySelector('.prev-avaliacao').onclick = () => {
+    clearInterval(intervaloAvaliacoes);
+    avaliacaoAnterior();
+    iniciarAuto();
+};
+
+function iniciarAuto() {
+    intervaloAvaliacoes = setInterval(proximaAvaliacao, 5000);
+}
+
+iniciarAuto();
 </script>
-
 </body>
 </html>
