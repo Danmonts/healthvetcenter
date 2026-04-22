@@ -484,7 +484,17 @@ footer {
 
         <div id="mensagemInfo" class="mensagem-info"></div>
 
-        <button id="btnWhats" onclick="enviarWhats()" disabled>
+        function enviarWhats() {
+    const animal = document.getElementById('animalSelect').value;
+    const servico = document.getElementById('servicoSelect').value;
+
+    const texto = `Olá! Gostaria de agendar atendimento para *${animal}*.\nServiço: *${servico}*.\n\n${mensagensServico[servico]} 🐾`;
+    const telefone = '5511914925164';
+
+    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
+
+    gtag_report_conversion(url); // 🔥 AGORA RASTREIA
+}
             Falar no WhatsApp
         </button>
 
@@ -597,8 +607,16 @@ Indico 100%"</p>
     <div class="contato-container">
         <div class="contato-info">
             <p><i class="fas fa-map-marker-alt"></i> Rua Washington Luiz, 70 - Suzano/SP</p>
-            <p><i class="fas fa-phone"></i> (11) 91492-5164</p>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/55914925164">WhatsApp</a></p>
+            <p>
+  <i class="fas fa-phone"></i> 
+  <a href="tel:+5511914925164" onclick="return gtag_report_conversion('tel:+5511914925164')">
+    (11) 91492-5164
+  </a>
+</p>
+            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511914925164"
+   onclick="return gtag_report_conversion('https://wa.me/5511914925164')">
+   WhatsApp
+</a></p>
             <p><i class="fas fa-clock"></i> Segunda a Sábado das 9h às 18h </p>
         </div>
         <div class="contato-visual">
@@ -610,7 +628,10 @@ Indico 100%"</p>
 <footer>
     Copyright © 2020-2026 Health Vet Center - Todos os direitos reservados
 </footer>
-<a class="whats-float" href="https://wa.me/5511914925164" target="_blank" aria-label="WhatsApp">
+<a class="whats-float"
+   href="https://wa.me/5511914925164"
+   target="_blank"
+   onclick="return gtag_report_conversion('https://wa.me/5511914925164')" aria-label="WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
